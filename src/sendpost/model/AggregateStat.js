@@ -50,17 +50,29 @@ class AggregateStat {
             if (data.hasOwnProperty('processed')) {
                 obj['processed'] = ApiClient.convertToType(data['processed'], 'Number');
             }
+            if (data.hasOwnProperty('sent')) {
+                obj['sent'] = ApiClient.convertToType(data['sent'], 'Number');
+            }
             if (data.hasOwnProperty('delivered')) {
                 obj['delivered'] = ApiClient.convertToType(data['delivered'], 'Number');
             }
             if (data.hasOwnProperty('dropped')) {
                 obj['dropped'] = ApiClient.convertToType(data['dropped'], 'Number');
             }
+            if (data.hasOwnProperty('smtpDropped')) {
+                obj['smtpDropped'] = ApiClient.convertToType(data['smtpDropped'], 'Number');
+            }
             if (data.hasOwnProperty('hardBounced')) {
                 obj['hardBounced'] = ApiClient.convertToType(data['hardBounced'], 'Number');
             }
             if (data.hasOwnProperty('softBounced')) {
                 obj['softBounced'] = ApiClient.convertToType(data['softBounced'], 'Number');
+            }
+            if (data.hasOwnProperty('opened')) {
+                obj['opened'] = ApiClient.convertToType(data['opened'], 'Number');
+            }
+            if (data.hasOwnProperty('clicked')) {
+                obj['clicked'] = ApiClient.convertToType(data['clicked'], 'Number');
             }
             if (data.hasOwnProperty('unsubscribed')) {
                 obj['unsubscribed'] = ApiClient.convertToType(data['unsubscribed'], 'Number');
@@ -98,6 +110,21 @@ class AggregateStat {
         this['processed'] = processed;
     }
 /**
+     * Returns Number of emails sent.
+     * @return {Number}
+     */
+    getSent() {
+        return this.sent;
+    }
+
+    /**
+     * Sets Number of emails sent.
+     * @param {Number} sent Number of emails sent.
+     */
+    setSent(sent) {
+        this['sent'] = sent;
+    }
+/**
      * Returns Number of emails we were able to successfully deliver at SMTP without encountering any error
      * @return {Number}
      */
@@ -128,6 +155,21 @@ class AggregateStat {
         this['dropped'] = dropped;
     }
 /**
+     * Returns Number of emails dropped by SMTP.
+     * @return {Number}
+     */
+    getSmtpDropped() {
+        return this.smtpDropped;
+    }
+
+    /**
+     * Sets Number of emails dropped by SMTP.
+     * @param {Number} smtpDropped Number of emails dropped by SMTP.
+     */
+    setSmtpDropped(smtpDropped) {
+        this['smtpDropped'] = smtpDropped;
+    }
+/**
      * Returns Number of emails where we got SMTP hard bounce error code by the recipient mail provider
      * @return {Number}
      */
@@ -156,6 +198,36 @@ class AggregateStat {
      */
     setSoftBounced(softBounced) {
         this['softBounced'] = softBounced;
+    }
+/**
+     * Returns Number of emails opened by recipients
+     * @return {Number}
+     */
+    getOpened() {
+        return this.opened;
+    }
+
+    /**
+     * Sets Number of emails opened by recipients
+     * @param {Number} opened Number of emails opened by recipients
+     */
+    setOpened(opened) {
+        this['opened'] = opened;
+    }
+/**
+     * Returns Number of email links clicked by recipients
+     * @return {Number}
+     */
+    getClicked() {
+        return this.clicked;
+    }
+
+    /**
+     * Sets Number of email links clicked by recipients
+     * @param {Number} clicked Number of email links clicked by recipients
+     */
+    setClicked(clicked) {
+        this['clicked'] = clicked;
     }
 /**
      * Returns Number of email recipients who unsubscribed from receiving further emails
@@ -199,6 +271,12 @@ class AggregateStat {
 AggregateStat.prototype['processed'] = undefined;
 
 /**
+ * Number of emails sent.
+ * @member {Number} sent
+ */
+AggregateStat.prototype['sent'] = undefined;
+
+/**
  * Number of emails we were able to successfully deliver at SMTP without encountering any error
  * @member {Number} delivered
  */
@@ -211,6 +289,12 @@ AggregateStat.prototype['delivered'] = undefined;
 AggregateStat.prototype['dropped'] = undefined;
 
 /**
+ * Number of emails dropped by SMTP.
+ * @member {Number} smtpDropped
+ */
+AggregateStat.prototype['smtpDropped'] = undefined;
+
+/**
  * Number of emails where we got SMTP hard bounce error code by the recipient mail provider
  * @member {Number} hardBounced
  */
@@ -221,6 +305,18 @@ AggregateStat.prototype['hardBounced'] = undefined;
  * @member {Number} softBounced
  */
 AggregateStat.prototype['softBounced'] = undefined;
+
+/**
+ * Number of emails opened by recipients
+ * @member {Number} opened
+ */
+AggregateStat.prototype['opened'] = undefined;
+
+/**
+ * Number of email links clicked by recipients
+ * @member {Number} clicked
+ */
+AggregateStat.prototype['clicked'] = undefined;
 
 /**
  * Number of email recipients who unsubscribed from receiving further emails

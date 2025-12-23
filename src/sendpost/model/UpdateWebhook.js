@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import NewWebhook from './NewWebhook';
+import CreateWebhookRequest from './CreateWebhookRequest';
 
 /**
  * The UpdateWebhook model module.
@@ -23,10 +23,10 @@ class UpdateWebhook {
     /**
      * Constructs a new <code>UpdateWebhook</code>.
      * @alias module:sendpost/model/UpdateWebhook
-     * @implements module:sendpost/model/NewWebhook
+     * @implements module:sendpost/model/CreateWebhookRequest
      */
     constructor() { 
-        NewWebhook.initialize(this);
+        CreateWebhookRequest.initialize(this);
         UpdateWebhook.initialize(this);
     }
 
@@ -48,7 +48,7 @@ class UpdateWebhook {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new UpdateWebhook();
-            NewWebhook.constructFromObject(data, obj);
+            CreateWebhookRequest.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('enabled')) {
                 obj['enabled'] = ApiClient.convertToType(data['enabled'], 'Boolean');
@@ -434,82 +434,82 @@ UpdateWebhook.prototype['uniqueOpen'] = undefined;
 UpdateWebhook.prototype['uniqueClick'] = undefined;
 
 
-// Implement NewWebhook interface:
+// Implement CreateWebhookRequest interface:
 /**
  * Is the webhook active or in a paused state?
  * @member {Boolean} enabled
  */
-NewWebhook.prototype['enabled'] = undefined;
+CreateWebhookRequest.prototype['enabled'] = undefined;
 /**
  * URL endpoint to which webhook calls are sent.
  * @member {String} url
  */
-NewWebhook.prototype['url'] = undefined;
+CreateWebhookRequest.prototype['url'] = undefined;
 /**
  * Trigger webhook on email message being processed.
  * @member {Boolean} processed
  */
-NewWebhook.prototype['processed'] = undefined;
+CreateWebhookRequest.prototype['processed'] = undefined;
 /**
  * Trigger webhook on email message being delivered.
  * @member {Boolean} delivered
  */
-NewWebhook.prototype['delivered'] = undefined;
+CreateWebhookRequest.prototype['delivered'] = undefined;
 /**
  * Trigger webhook on email message being dropped.
  * @member {Boolean} dropped
  */
-NewWebhook.prototype['dropped'] = undefined;
+CreateWebhookRequest.prototype['dropped'] = undefined;
 /**
  * Trigger webhook on email message being soft bounced.
  * @member {Boolean} softBounced
  */
-NewWebhook.prototype['softBounced'] = undefined;
+CreateWebhookRequest.prototype['softBounced'] = undefined;
 /**
  * Trigger webhook on email message being hard bounced.
  * @member {Boolean} hardBounced
  */
-NewWebhook.prototype['hardBounced'] = undefined;
+CreateWebhookRequest.prototype['hardBounced'] = undefined;
 /**
  * Trigger webhook on email message being opened.
  * @member {Boolean} opened
  */
-NewWebhook.prototype['opened'] = undefined;
+CreateWebhookRequest.prototype['opened'] = undefined;
 /**
  * Trigger webhook on email message link being clicked.
  * @member {Boolean} clicked
  */
-NewWebhook.prototype['clicked'] = undefined;
+CreateWebhookRequest.prototype['clicked'] = undefined;
 /**
  * Trigger webhook on email message being unsubscribed.
  * @member {Boolean} unsubscribed
  */
-NewWebhook.prototype['unsubscribed'] = undefined;
+CreateWebhookRequest.prototype['unsubscribed'] = undefined;
 /**
  * Trigger webhook on email message being marked as spam.
  * @member {Boolean} spam
  */
-NewWebhook.prototype['spam'] = undefined;
+CreateWebhookRequest.prototype['spam'] = undefined;
 /**
  * Trigger webhook on email message being sent.
  * @member {Boolean} sent
  */
-NewWebhook.prototype['sent'] = undefined;
+CreateWebhookRequest.prototype['sent'] = undefined;
 /**
  * Trigger webhook on email message being dropped by SMTP.
  * @member {Boolean} smtpDropped
  */
-NewWebhook.prototype['smtpDropped'] = undefined;
+CreateWebhookRequest.prototype['smtpDropped'] = undefined;
 /**
  * Trigger webhook on unique email opens.
  * @member {Boolean} uniqueOpen
  */
-NewWebhook.prototype['uniqueOpen'] = undefined;
+CreateWebhookRequest.prototype['uniqueOpen'] = undefined;
 /**
  * Trigger webhook on unique email clicks.
  * @member {Boolean} uniqueClick
  */
-NewWebhook.prototype['uniqueClick'] = undefined;
+CreateWebhookRequest.prototype['uniqueClick'] = undefined;
 
 
 

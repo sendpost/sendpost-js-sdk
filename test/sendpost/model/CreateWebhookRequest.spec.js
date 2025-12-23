@@ -11,296 +11,139 @@
  *
  */
 
-import ApiClient from '../ApiClient';
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js', process.cwd()+'/src/sendpost/index'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'), require(process.cwd()+'/src/sendpost/index'));
+  } else {
+    // Browser globals (root is window)
+    factory(root.expect, root.sendpost);
+  }
+}(this, function(expect, sendpost) {
+  'use strict';
 
-/**
- * The AggregateStats model module.
- * @module sendpost/model/AggregateStats
- * @version 1.0.0
- */
-class AggregateStats {
-    /**
-     * Constructs a new <code>AggregateStats</code>.
-     * @alias module:sendpost/model/AggregateStats
-     */
-    constructor() { 
-        
-        AggregateStats.initialize(this);
-    }
+  var instance;
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
+  beforeEach(function() {
+    instance = new sendpost.CreateWebhookRequest();
+  });
 
-    /**
-     * Constructs a <code>AggregateStats</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:sendpost/model/AggregateStats} obj Optional instance to populate.
-     * @return {module:sendpost/model/AggregateStats} The populated <code>AggregateStats</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new AggregateStats();
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
+  }
 
-            if (data.hasOwnProperty('processed')) {
-                obj['processed'] = ApiClient.convertToType(data['processed'], 'Number');
-            }
-            if (data.hasOwnProperty('sent')) {
-                obj['sent'] = ApiClient.convertToType(data['sent'], 'Number');
-            }
-            if (data.hasOwnProperty('delivered')) {
-                obj['delivered'] = ApiClient.convertToType(data['delivered'], 'Number');
-            }
-            if (data.hasOwnProperty('dropped')) {
-                obj['dropped'] = ApiClient.convertToType(data['dropped'], 'Number');
-            }
-            if (data.hasOwnProperty('smtpDropped')) {
-                obj['smtpDropped'] = ApiClient.convertToType(data['smtpDropped'], 'Number');
-            }
-            if (data.hasOwnProperty('hardBounced')) {
-                obj['hardBounced'] = ApiClient.convertToType(data['hardBounced'], 'Number');
-            }
-            if (data.hasOwnProperty('softBounced')) {
-                obj['softBounced'] = ApiClient.convertToType(data['softBounced'], 'Number');
-            }
-            if (data.hasOwnProperty('opened')) {
-                obj['opened'] = ApiClient.convertToType(data['opened'], 'Number');
-            }
-            if (data.hasOwnProperty('clicked')) {
-                obj['clicked'] = ApiClient.convertToType(data['clicked'], 'Number');
-            }
-            if (data.hasOwnProperty('unsubscribed')) {
-                obj['unsubscribed'] = ApiClient.convertToType(data['unsubscribed'], 'Number');
-            }
-            if (data.hasOwnProperty('spams')) {
-                obj['spams'] = ApiClient.convertToType(data['spams'], 'Number');
-            }
-        }
-        return obj;
-    }
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
-    /**
-     * Validates the JSON data with respect to <code>AggregateStats</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>AggregateStats</code>.
-     */
-    static validateJSON(data) {
+  describe('CreateWebhookRequest', function() {
+    it('should create an instance of CreateWebhookRequest', function() {
+      // uncomment below and update the code to test CreateWebhookRequest
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be.a(sendpost.CreateWebhookRequest);
+    });
 
-        return true;
-    }
+    it('should have the property enabled (base name: "enabled")', function() {
+      // uncomment below and update the code to test the property enabled
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be();
+    });
 
-/**
-     * @return {Number}
-     */
-    getProcessed() {
-        return this.processed;
-    }
+    it('should have the property url (base name: "url")', function() {
+      // uncomment below and update the code to test the property url
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be();
+    });
 
-    /**
-     * @param {Number} processed
-     */
-    setProcessed(processed) {
-        this['processed'] = processed;
-    }
-/**
-     * @return {Number}
-     */
-    getSent() {
-        return this.sent;
-    }
+    it('should have the property processed (base name: "processed")', function() {
+      // uncomment below and update the code to test the property processed
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be();
+    });
 
-    /**
-     * @param {Number} sent
-     */
-    setSent(sent) {
-        this['sent'] = sent;
-    }
-/**
-     * @return {Number}
-     */
-    getDelivered() {
-        return this.delivered;
-    }
+    it('should have the property delivered (base name: "delivered")', function() {
+      // uncomment below and update the code to test the property delivered
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be();
+    });
 
-    /**
-     * @param {Number} delivered
-     */
-    setDelivered(delivered) {
-        this['delivered'] = delivered;
-    }
-/**
-     * @return {Number}
-     */
-    getDropped() {
-        return this.dropped;
-    }
+    it('should have the property dropped (base name: "dropped")', function() {
+      // uncomment below and update the code to test the property dropped
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be();
+    });
 
-    /**
-     * @param {Number} dropped
-     */
-    setDropped(dropped) {
-        this['dropped'] = dropped;
-    }
-/**
-     * @return {Number}
-     */
-    getSmtpDropped() {
-        return this.smtpDropped;
-    }
+    it('should have the property softBounced (base name: "softBounced")', function() {
+      // uncomment below and update the code to test the property softBounced
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be();
+    });
 
-    /**
-     * @param {Number} smtpDropped
-     */
-    setSmtpDropped(smtpDropped) {
-        this['smtpDropped'] = smtpDropped;
-    }
-/**
-     * @return {Number}
-     */
-    getHardBounced() {
-        return this.hardBounced;
-    }
+    it('should have the property hardBounced (base name: "hardBounced")', function() {
+      // uncomment below and update the code to test the property hardBounced
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be();
+    });
 
-    /**
-     * @param {Number} hardBounced
-     */
-    setHardBounced(hardBounced) {
-        this['hardBounced'] = hardBounced;
-    }
-/**
-     * @return {Number}
-     */
-    getSoftBounced() {
-        return this.softBounced;
-    }
+    it('should have the property opened (base name: "opened")', function() {
+      // uncomment below and update the code to test the property opened
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be();
+    });
 
-    /**
-     * @param {Number} softBounced
-     */
-    setSoftBounced(softBounced) {
-        this['softBounced'] = softBounced;
-    }
-/**
-     * @return {Number}
-     */
-    getOpened() {
-        return this.opened;
-    }
+    it('should have the property clicked (base name: "clicked")', function() {
+      // uncomment below and update the code to test the property clicked
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be();
+    });
 
-    /**
-     * @param {Number} opened
-     */
-    setOpened(opened) {
-        this['opened'] = opened;
-    }
-/**
-     * @return {Number}
-     */
-    getClicked() {
-        return this.clicked;
-    }
+    it('should have the property unsubscribed (base name: "unsubscribed")', function() {
+      // uncomment below and update the code to test the property unsubscribed
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be();
+    });
 
-    /**
-     * @param {Number} clicked
-     */
-    setClicked(clicked) {
-        this['clicked'] = clicked;
-    }
-/**
-     * @return {Number}
-     */
-    getUnsubscribed() {
-        return this.unsubscribed;
-    }
+    it('should have the property spam (base name: "spam")', function() {
+      // uncomment below and update the code to test the property spam
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be();
+    });
 
-    /**
-     * @param {Number} unsubscribed
-     */
-    setUnsubscribed(unsubscribed) {
-        this['unsubscribed'] = unsubscribed;
-    }
-/**
-     * @return {Number}
-     */
-    getSpams() {
-        return this.spams;
-    }
+    it('should have the property sent (base name: "sent")', function() {
+      // uncomment below and update the code to test the property sent
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be();
+    });
 
-    /**
-     * @param {Number} spams
-     */
-    setSpams(spams) {
-        this['spams'] = spams;
-    }
+    it('should have the property smtpDropped (base name: "smtpDropped")', function() {
+      // uncomment below and update the code to test the property smtpDropped
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be();
+    });
 
-}
+    it('should have the property uniqueOpen (base name: "uniqueOpen")', function() {
+      // uncomment below and update the code to test the property uniqueOpen
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property uniqueClick (base name: "uniqueClick")', function() {
+      // uncomment below and update the code to test the property uniqueClick
+      //var instance = new sendpost.CreateWebhookRequest();
+      //expect(instance).to.be();
+    });
 
+  });
 
-/**
- * @member {Number} processed
- */
-AggregateStats.prototype['processed'] = undefined;
-
-/**
- * @member {Number} sent
- */
-AggregateStats.prototype['sent'] = undefined;
-
-/**
- * @member {Number} delivered
- */
-AggregateStats.prototype['delivered'] = undefined;
-
-/**
- * @member {Number} dropped
- */
-AggregateStats.prototype['dropped'] = undefined;
-
-/**
- * @member {Number} smtpDropped
- */
-AggregateStats.prototype['smtpDropped'] = undefined;
-
-/**
- * @member {Number} hardBounced
- */
-AggregateStats.prototype['hardBounced'] = undefined;
-
-/**
- * @member {Number} softBounced
- */
-AggregateStats.prototype['softBounced'] = undefined;
-
-/**
- * @member {Number} opened
- */
-AggregateStats.prototype['opened'] = undefined;
-
-/**
- * @member {Number} clicked
- */
-AggregateStats.prototype['clicked'] = undefined;
-
-/**
- * @member {Number} unsubscribed
- */
-AggregateStats.prototype['unsubscribed'] = undefined;
-
-/**
- * @member {Number} spams
- */
-AggregateStats.prototype['spams'] = undefined;
-
-
-
-
-
-
-export default AggregateStats;
-
+}));

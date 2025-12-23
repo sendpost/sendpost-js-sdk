@@ -13,8 +13,8 @@
 
 
 import ApiClient from "../ApiClient";
+import CreateWebhookRequest from '../model/CreateWebhookRequest';
 import DeleteWebhookResponse from '../model/DeleteWebhookResponse';
-import NewWebhook from '../model/NewWebhook';
 import UpdateWebhook from '../model/UpdateWebhook';
 import Webhook from '../model/Webhook';
 
@@ -41,14 +41,14 @@ export default class WebhookApi {
     /**
      * Create Webhook
      * Create a new webhook by specifying its properties.
-     * @param {module:sendpost/model/NewWebhook} newWebhook 
+     * @param {module:sendpost/model/CreateWebhookRequest} createWebhookRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:sendpost/model/Webhook} and HTTP response
      */
-    createWebhookWithHttpInfo(newWebhook) {
-      let postBody = newWebhook;
-      // verify the required parameter 'newWebhook' is set
-      if (newWebhook === undefined || newWebhook === null) {
-        throw new Error("Missing the required parameter 'newWebhook' when calling createWebhook");
+    createWebhookWithHttpInfo(createWebhookRequest) {
+      let postBody = createWebhookRequest;
+      // verify the required parameter 'createWebhookRequest' is set
+      if (createWebhookRequest === undefined || createWebhookRequest === null) {
+        throw new Error("Missing the required parameter 'createWebhookRequest' when calling createWebhook");
       }
 
       let pathParams = {
@@ -74,11 +74,11 @@ export default class WebhookApi {
     /**
      * Create Webhook
      * Create a new webhook by specifying its properties.
-     * @param {module:sendpost/model/NewWebhook} newWebhook 
+     * @param {module:sendpost/model/CreateWebhookRequest} createWebhookRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:sendpost/model/Webhook}
      */
-    createWebhook(newWebhook) {
-      return this.createWebhookWithHttpInfo(newWebhook)
+    createWebhook(createWebhookRequest) {
+      return this.createWebhookWithHttpInfo(createWebhookRequest)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

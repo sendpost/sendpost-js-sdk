@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createSubAccount
 
-> SubAccount createSubAccount(newSubAccount)
+> SubAccount createSubAccount(createSubAccountRequest)
 
 Create Sub-Account
 
@@ -32,8 +32,8 @@ accountAuth.apiKey = 'YOUR API KEY';
 //accountAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new sendpost.SubAccountApi();
-let newSubAccount = new sendpost.NewSubAccount(); // NewSubAccount | 
-apiInstance.createSubAccount(newSubAccount).then((data) => {
+let createSubAccountRequest = new sendpost.CreateSubAccountRequest(); // CreateSubAccountRequest | 
+apiInstance.createSubAccount(createSubAccountRequest).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -46,7 +46,7 @@ apiInstance.createSubAccount(newSubAccount).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newSubAccount** | [**NewSubAccount**](NewSubAccount.md)|  | 
+ **createSubAccountRequest** | [**CreateSubAccountRequest**](CreateSubAccountRequest.md)|  | 
 
 ### Return type
 

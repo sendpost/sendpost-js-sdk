@@ -50,11 +50,17 @@ class EmailStatsStats {
             if (data.hasOwnProperty('processed')) {
                 obj['processed'] = ApiClient.convertToType(data['processed'], 'Number');
             }
+            if (data.hasOwnProperty('sent')) {
+                obj['sent'] = ApiClient.convertToType(data['sent'], 'Number');
+            }
             if (data.hasOwnProperty('delivered')) {
                 obj['delivered'] = ApiClient.convertToType(data['delivered'], 'Number');
             }
             if (data.hasOwnProperty('dropped')) {
                 obj['dropped'] = ApiClient.convertToType(data['dropped'], 'Number');
+            }
+            if (data.hasOwnProperty('smtpDropped')) {
+                obj['smtpDropped'] = ApiClient.convertToType(data['smtpDropped'], 'Number');
             }
             if (data.hasOwnProperty('hardBounced')) {
                 obj['hardBounced'] = ApiClient.convertToType(data['hardBounced'], 'Number');
@@ -104,6 +110,21 @@ class EmailStatsStats {
         this['processed'] = processed;
     }
 /**
+     * Returns Number of emails sent
+     * @return {Number}
+     */
+    getSent() {
+        return this.sent;
+    }
+
+    /**
+     * Sets Number of emails sent
+     * @param {Number} sent Number of emails sent
+     */
+    setSent(sent) {
+        this['sent'] = sent;
+    }
+/**
      * Returns Number of emails successfully delivered to SMTP without errors
      * @return {Number}
      */
@@ -132,6 +153,21 @@ class EmailStatsStats {
      */
     setDropped(dropped) {
         this['dropped'] = dropped;
+    }
+/**
+     * Returns Number of emails dropped by SMTP
+     * @return {Number}
+     */
+    getSmtpDropped() {
+        return this.smtpDropped;
+    }
+
+    /**
+     * Sets Number of emails dropped by SMTP
+     * @param {Number} smtpDropped Number of emails dropped by SMTP
+     */
+    setSmtpDropped(smtpDropped) {
+        this['smtpDropped'] = smtpDropped;
     }
 /**
      * Returns Number of emails that resulted in a hard bounce error
@@ -235,6 +271,12 @@ class EmailStatsStats {
 EmailStatsStats.prototype['processed'] = undefined;
 
 /**
+ * Number of emails sent
+ * @member {Number} sent
+ */
+EmailStatsStats.prototype['sent'] = undefined;
+
+/**
  * Number of emails successfully delivered to SMTP without errors
  * @member {Number} delivered
  */
@@ -245,6 +287,12 @@ EmailStatsStats.prototype['delivered'] = undefined;
  * @member {Number} dropped
  */
 EmailStatsStats.prototype['dropped'] = undefined;
+
+/**
+ * Number of emails dropped by SMTP
+ * @member {Number} smtpDropped
+ */
+EmailStatsStats.prototype['smtpDropped'] = undefined;
 
 /**
  * Number of emails that resulted in a hard bounce error

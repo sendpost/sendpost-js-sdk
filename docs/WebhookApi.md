@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createWebhook
 
-> Webhook createWebhook(newWebhook)
+> Webhook createWebhook(createWebhookRequest)
 
 Create Webhook
 
@@ -32,8 +32,8 @@ accountAuth.apiKey = 'YOUR API KEY';
 //accountAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new sendpost.WebhookApi();
-let newWebhook = new sendpost.NewWebhook(); // NewWebhook | 
-apiInstance.createWebhook(newWebhook).then((data) => {
+let createWebhookRequest = new sendpost.CreateWebhookRequest(); // CreateWebhookRequest | 
+apiInstance.createWebhook(createWebhookRequest).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -46,7 +46,7 @@ apiInstance.createWebhook(newWebhook).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newWebhook** | [**NewWebhook**](NewWebhook.md)|  | 
+ **createWebhookRequest** | [**CreateWebhookRequest**](CreateWebhookRequest.md)|  | 
 
 ### Return type
 

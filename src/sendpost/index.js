@@ -21,11 +21,13 @@ import AggregatedEmailStats from './model/AggregatedEmailStats';
 import Attachment from './model/Attachment';
 import CopyTo from './model/CopyTo';
 import CreateDomainRequest from './model/CreateDomainRequest';
+import CreateSubAccountRequest from './model/CreateSubAccountRequest';
 import CreateSuppressionRequest from './model/CreateSuppressionRequest';
 import CreateSuppressionRequestHardBounceInner from './model/CreateSuppressionRequestHardBounceInner';
 import CreateSuppressionRequestManualInner from './model/CreateSuppressionRequestManualInner';
 import CreateSuppressionRequestSpamComplaintInner from './model/CreateSuppressionRequestSpamComplaintInner';
 import CreateSuppressionRequestUnsubscribeInner from './model/CreateSuppressionRequestUnsubscribeInner';
+import CreateWebhookRequest from './model/CreateWebhookRequest';
 import DeleteResponse from './model/DeleteResponse';
 import DeleteSubAccountResponse from './model/DeleteSubAccountResponse';
 import DeleteSuppression200ResponseInner from './model/DeleteSuppression200ResponseInner';
@@ -66,8 +68,6 @@ import Member from './model/Member';
 import Message from './model/Message';
 import MessageHeaderTo from './model/MessageHeaderTo';
 import MessageTo from './model/MessageTo';
-import NewSubAccount from './model/NewSubAccount';
-import NewWebhook from './model/NewWebhook';
 import OperatingSystem from './model/OperatingSystem';
 import Person from './model/Person';
 import Recipient from './model/Recipient';
@@ -181,6 +181,12 @@ export {
     CreateDomainRequest,
 
     /**
+     * The CreateSubAccountRequest model constructor.
+     * @property {module:sendpost/model/CreateSubAccountRequest}
+     */
+    CreateSubAccountRequest,
+
+    /**
      * The CreateSuppressionRequest model constructor.
      * @property {module:sendpost/model/CreateSuppressionRequest}
      */
@@ -209,6 +215,12 @@ export {
      * @property {module:sendpost/model/CreateSuppressionRequestUnsubscribeInner}
      */
     CreateSuppressionRequestUnsubscribeInner,
+
+    /**
+     * The CreateWebhookRequest model constructor.
+     * @property {module:sendpost/model/CreateWebhookRequest}
+     */
+    CreateWebhookRequest,
 
     /**
      * The DeleteResponse model constructor.
@@ -449,18 +461,6 @@ export {
      * @property {module:sendpost/model/MessageTo}
      */
     MessageTo,
-
-    /**
-     * The NewSubAccount model constructor.
-     * @property {module:sendpost/model/NewSubAccount}
-     */
-    NewSubAccount,
-
-    /**
-     * The NewWebhook model constructor.
-     * @property {module:sendpost/model/NewWebhook}
-     */
-    NewWebhook,
 
     /**
      * The OperatingSystem model constructor.

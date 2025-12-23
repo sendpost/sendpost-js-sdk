@@ -5,12 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **processed** | **Number** |  | [optional] 
+**sent** | **Number** |  | [optional] 
 **delivered** | **Number** |  | [optional] 
 **dropped** | **Number** |  | [optional] 
+**smtpDropped** | **Number** |  | [optional] 
 **hardBounced** | **Number** |  | [optional] 
 **softBounced** | **Number** |  | [optional] 
-**opens** | **Number** |  | [optional] 
-**clicks** | **Number** |  | [optional] 
+**opened** | **Number** |  | [optional] 
+**clicked** | **Number** |  | [optional] 
 **unsubscribed** | **Number** |  | [optional] 
 **spams** | **Number** |  | [optional] 
 

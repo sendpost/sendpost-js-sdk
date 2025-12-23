@@ -13,8 +13,8 @@
 
 
 import ApiClient from "../ApiClient";
+import CreateSubAccountRequest from '../model/CreateSubAccountRequest';
 import DeleteSubAccountResponse from '../model/DeleteSubAccountResponse';
-import NewSubAccount from '../model/NewSubAccount';
 import SubAccount from '../model/SubAccount';
 import UpdateSubAccount from '../model/UpdateSubAccount';
 
@@ -41,14 +41,14 @@ export default class SubAccountApi {
     /**
      * Create Sub-Account
      * Creates a new sub-account under the current account.
-     * @param {module:sendpost/model/NewSubAccount} newSubAccount 
+     * @param {module:sendpost/model/CreateSubAccountRequest} createSubAccountRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:sendpost/model/SubAccount} and HTTP response
      */
-    createSubAccountWithHttpInfo(newSubAccount) {
-      let postBody = newSubAccount;
-      // verify the required parameter 'newSubAccount' is set
-      if (newSubAccount === undefined || newSubAccount === null) {
-        throw new Error("Missing the required parameter 'newSubAccount' when calling createSubAccount");
+    createSubAccountWithHttpInfo(createSubAccountRequest) {
+      let postBody = createSubAccountRequest;
+      // verify the required parameter 'createSubAccountRequest' is set
+      if (createSubAccountRequest === undefined || createSubAccountRequest === null) {
+        throw new Error("Missing the required parameter 'createSubAccountRequest' when calling createSubAccount");
       }
 
       let pathParams = {
@@ -74,11 +74,11 @@ export default class SubAccountApi {
     /**
      * Create Sub-Account
      * Creates a new sub-account under the current account.
-     * @param {module:sendpost/model/NewSubAccount} newSubAccount 
+     * @param {module:sendpost/model/CreateSubAccountRequest} createSubAccountRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:sendpost/model/SubAccount}
      */
-    createSubAccount(newSubAccount) {
-      return this.createSubAccountWithHttpInfo(newSubAccount)
+    createSubAccount(createSubAccountRequest) {
+      return this.createSubAccountWithHttpInfo(createSubAccountRequest)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

@@ -14,18 +14,18 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The AggregateStats model module.
- * @module sendpost/model/AggregateStats
+ * The CreateSubAccountRequest model module.
+ * @module sendpost/model/CreateSubAccountRequest
  * @version 1.0.0
  */
-class AggregateStats {
+class CreateSubAccountRequest {
     /**
-     * Constructs a new <code>AggregateStats</code>.
-     * @alias module:sendpost/model/AggregateStats
+     * Constructs a new <code>CreateSubAccountRequest</code>.
+     * @alias module:sendpost/model/CreateSubAccountRequest
      */
     constructor() { 
         
-        AggregateStats.initialize(this);
+        CreateSubAccountRequest.initialize(this);
     }
 
     /**
@@ -37,205 +37,51 @@ class AggregateStats {
     }
 
     /**
-     * Constructs a <code>AggregateStats</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>CreateSubAccountRequest</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:sendpost/model/AggregateStats} obj Optional instance to populate.
-     * @return {module:sendpost/model/AggregateStats} The populated <code>AggregateStats</code> instance.
+     * @param {module:sendpost/model/CreateSubAccountRequest} obj Optional instance to populate.
+     * @return {module:sendpost/model/CreateSubAccountRequest} The populated <code>CreateSubAccountRequest</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new AggregateStats();
+            obj = obj || new CreateSubAccountRequest();
 
-            if (data.hasOwnProperty('processed')) {
-                obj['processed'] = ApiClient.convertToType(data['processed'], 'Number');
-            }
-            if (data.hasOwnProperty('sent')) {
-                obj['sent'] = ApiClient.convertToType(data['sent'], 'Number');
-            }
-            if (data.hasOwnProperty('delivered')) {
-                obj['delivered'] = ApiClient.convertToType(data['delivered'], 'Number');
-            }
-            if (data.hasOwnProperty('dropped')) {
-                obj['dropped'] = ApiClient.convertToType(data['dropped'], 'Number');
-            }
-            if (data.hasOwnProperty('smtpDropped')) {
-                obj['smtpDropped'] = ApiClient.convertToType(data['smtpDropped'], 'Number');
-            }
-            if (data.hasOwnProperty('hardBounced')) {
-                obj['hardBounced'] = ApiClient.convertToType(data['hardBounced'], 'Number');
-            }
-            if (data.hasOwnProperty('softBounced')) {
-                obj['softBounced'] = ApiClient.convertToType(data['softBounced'], 'Number');
-            }
-            if (data.hasOwnProperty('opened')) {
-                obj['opened'] = ApiClient.convertToType(data['opened'], 'Number');
-            }
-            if (data.hasOwnProperty('clicked')) {
-                obj['clicked'] = ApiClient.convertToType(data['clicked'], 'Number');
-            }
-            if (data.hasOwnProperty('unsubscribed')) {
-                obj['unsubscribed'] = ApiClient.convertToType(data['unsubscribed'], 'Number');
-            }
-            if (data.hasOwnProperty('spams')) {
-                obj['spams'] = ApiClient.convertToType(data['spams'], 'Number');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>AggregateStats</code>.
+     * Validates the JSON data with respect to <code>CreateSubAccountRequest</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>AggregateStats</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateSubAccountRequest</code>.
      */
     static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
 
         return true;
     }
 
 /**
-     * @return {Number}
+     * Returns Name for the new sub-account.
+     * @return {String}
      */
-    getProcessed() {
-        return this.processed;
+    getName() {
+        return this.name;
     }
 
     /**
-     * @param {Number} processed
+     * Sets Name for the new sub-account.
+     * @param {String} name Name for the new sub-account.
      */
-    setProcessed(processed) {
-        this['processed'] = processed;
-    }
-/**
-     * @return {Number}
-     */
-    getSent() {
-        return this.sent;
-    }
-
-    /**
-     * @param {Number} sent
-     */
-    setSent(sent) {
-        this['sent'] = sent;
-    }
-/**
-     * @return {Number}
-     */
-    getDelivered() {
-        return this.delivered;
-    }
-
-    /**
-     * @param {Number} delivered
-     */
-    setDelivered(delivered) {
-        this['delivered'] = delivered;
-    }
-/**
-     * @return {Number}
-     */
-    getDropped() {
-        return this.dropped;
-    }
-
-    /**
-     * @param {Number} dropped
-     */
-    setDropped(dropped) {
-        this['dropped'] = dropped;
-    }
-/**
-     * @return {Number}
-     */
-    getSmtpDropped() {
-        return this.smtpDropped;
-    }
-
-    /**
-     * @param {Number} smtpDropped
-     */
-    setSmtpDropped(smtpDropped) {
-        this['smtpDropped'] = smtpDropped;
-    }
-/**
-     * @return {Number}
-     */
-    getHardBounced() {
-        return this.hardBounced;
-    }
-
-    /**
-     * @param {Number} hardBounced
-     */
-    setHardBounced(hardBounced) {
-        this['hardBounced'] = hardBounced;
-    }
-/**
-     * @return {Number}
-     */
-    getSoftBounced() {
-        return this.softBounced;
-    }
-
-    /**
-     * @param {Number} softBounced
-     */
-    setSoftBounced(softBounced) {
-        this['softBounced'] = softBounced;
-    }
-/**
-     * @return {Number}
-     */
-    getOpened() {
-        return this.opened;
-    }
-
-    /**
-     * @param {Number} opened
-     */
-    setOpened(opened) {
-        this['opened'] = opened;
-    }
-/**
-     * @return {Number}
-     */
-    getClicked() {
-        return this.clicked;
-    }
-
-    /**
-     * @param {Number} clicked
-     */
-    setClicked(clicked) {
-        this['clicked'] = clicked;
-    }
-/**
-     * @return {Number}
-     */
-    getUnsubscribed() {
-        return this.unsubscribed;
-    }
-
-    /**
-     * @param {Number} unsubscribed
-     */
-    setUnsubscribed(unsubscribed) {
-        this['unsubscribed'] = unsubscribed;
-    }
-/**
-     * @return {Number}
-     */
-    getSpams() {
-        return this.spams;
-    }
-
-    /**
-     * @param {Number} spams
-     */
-    setSpams(spams) {
-        this['spams'] = spams;
+    setName(name) {
+        this['name'] = name;
     }
 
 }
@@ -243,64 +89,15 @@ class AggregateStats {
 
 
 /**
- * @member {Number} processed
+ * Name for the new sub-account.
+ * @member {String} name
  */
-AggregateStats.prototype['processed'] = undefined;
-
-/**
- * @member {Number} sent
- */
-AggregateStats.prototype['sent'] = undefined;
-
-/**
- * @member {Number} delivered
- */
-AggregateStats.prototype['delivered'] = undefined;
-
-/**
- * @member {Number} dropped
- */
-AggregateStats.prototype['dropped'] = undefined;
-
-/**
- * @member {Number} smtpDropped
- */
-AggregateStats.prototype['smtpDropped'] = undefined;
-
-/**
- * @member {Number} hardBounced
- */
-AggregateStats.prototype['hardBounced'] = undefined;
-
-/**
- * @member {Number} softBounced
- */
-AggregateStats.prototype['softBounced'] = undefined;
-
-/**
- * @member {Number} opened
- */
-AggregateStats.prototype['opened'] = undefined;
-
-/**
- * @member {Number} clicked
- */
-AggregateStats.prototype['clicked'] = undefined;
-
-/**
- * @member {Number} unsubscribed
- */
-AggregateStats.prototype['unsubscribed'] = undefined;
-
-/**
- * @member {Number} spams
- */
-AggregateStats.prototype['spams'] = undefined;
+CreateSubAccountRequest.prototype['name'] = undefined;
 
 
 
 
 
 
-export default AggregateStats;
+export default CreateSubAccountRequest;
 

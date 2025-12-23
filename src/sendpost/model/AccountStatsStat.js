@@ -50,11 +50,17 @@ class AccountStatsStat {
             if (data.hasOwnProperty('processed')) {
                 obj['processed'] = ApiClient.convertToType(data['processed'], 'Number');
             }
+            if (data.hasOwnProperty('sent')) {
+                obj['sent'] = ApiClient.convertToType(data['sent'], 'Number');
+            }
             if (data.hasOwnProperty('delivered')) {
                 obj['delivered'] = ApiClient.convertToType(data['delivered'], 'Number');
             }
             if (data.hasOwnProperty('dropped')) {
                 obj['dropped'] = ApiClient.convertToType(data['dropped'], 'Number');
+            }
+            if (data.hasOwnProperty('smtpDropped')) {
+                obj['smtpDropped'] = ApiClient.convertToType(data['smtpDropped'], 'Number');
             }
             if (data.hasOwnProperty('hardBounced')) {
                 obj['hardBounced'] = ApiClient.convertToType(data['hardBounced'], 'Number');
@@ -62,11 +68,11 @@ class AccountStatsStat {
             if (data.hasOwnProperty('softBounced')) {
                 obj['softBounced'] = ApiClient.convertToType(data['softBounced'], 'Number');
             }
-            if (data.hasOwnProperty('opens')) {
-                obj['opens'] = ApiClient.convertToType(data['opens'], 'Number');
+            if (data.hasOwnProperty('opened')) {
+                obj['opened'] = ApiClient.convertToType(data['opened'], 'Number');
             }
-            if (data.hasOwnProperty('clicks')) {
-                obj['clicks'] = ApiClient.convertToType(data['clicks'], 'Number');
+            if (data.hasOwnProperty('clicked')) {
+                obj['clicked'] = ApiClient.convertToType(data['clicked'], 'Number');
             }
             if (data.hasOwnProperty('unsubscribed')) {
                 obj['unsubscribed'] = ApiClient.convertToType(data['unsubscribed'], 'Number');
@@ -104,6 +110,19 @@ class AccountStatsStat {
 /**
      * @return {Number}
      */
+    getSent() {
+        return this.sent;
+    }
+
+    /**
+     * @param {Number} sent
+     */
+    setSent(sent) {
+        this['sent'] = sent;
+    }
+/**
+     * @return {Number}
+     */
     getDelivered() {
         return this.delivered;
     }
@@ -126,6 +145,19 @@ class AccountStatsStat {
      */
     setDropped(dropped) {
         this['dropped'] = dropped;
+    }
+/**
+     * @return {Number}
+     */
+    getSmtpDropped() {
+        return this.smtpDropped;
+    }
+
+    /**
+     * @param {Number} smtpDropped
+     */
+    setSmtpDropped(smtpDropped) {
+        this['smtpDropped'] = smtpDropped;
     }
 /**
      * @return {Number}
@@ -156,28 +188,28 @@ class AccountStatsStat {
 /**
      * @return {Number}
      */
-    getOpens() {
-        return this.opens;
+    getOpened() {
+        return this.opened;
     }
 
     /**
-     * @param {Number} opens
+     * @param {Number} opened
      */
-    setOpens(opens) {
-        this['opens'] = opens;
+    setOpened(opened) {
+        this['opened'] = opened;
     }
 /**
      * @return {Number}
      */
-    getClicks() {
-        return this.clicks;
+    getClicked() {
+        return this.clicked;
     }
 
     /**
-     * @param {Number} clicks
+     * @param {Number} clicked
      */
-    setClicks(clicks) {
-        this['clicks'] = clicks;
+    setClicked(clicked) {
+        this['clicked'] = clicked;
     }
 /**
      * @return {Number}
@@ -216,6 +248,11 @@ class AccountStatsStat {
 AccountStatsStat.prototype['processed'] = undefined;
 
 /**
+ * @member {Number} sent
+ */
+AccountStatsStat.prototype['sent'] = undefined;
+
+/**
  * @member {Number} delivered
  */
 AccountStatsStat.prototype['delivered'] = undefined;
@@ -224,6 +261,11 @@ AccountStatsStat.prototype['delivered'] = undefined;
  * @member {Number} dropped
  */
 AccountStatsStat.prototype['dropped'] = undefined;
+
+/**
+ * @member {Number} smtpDropped
+ */
+AccountStatsStat.prototype['smtpDropped'] = undefined;
 
 /**
  * @member {Number} hardBounced
@@ -236,14 +278,14 @@ AccountStatsStat.prototype['hardBounced'] = undefined;
 AccountStatsStat.prototype['softBounced'] = undefined;
 
 /**
- * @member {Number} opens
+ * @member {Number} opened
  */
-AccountStatsStat.prototype['opens'] = undefined;
+AccountStatsStat.prototype['opened'] = undefined;
 
 /**
- * @member {Number} clicks
+ * @member {Number} clicked
  */
-AccountStatsStat.prototype['clicks'] = undefined;
+AccountStatsStat.prototype['clicked'] = undefined;
 
 /**
  * @member {Number} unsubscribed

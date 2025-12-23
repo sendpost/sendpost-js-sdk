@@ -14,18 +14,18 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The AggregateStats model module.
- * @module sendpost/model/AggregateStats
+ * The CreateWebhookRequest model module.
+ * @module sendpost/model/CreateWebhookRequest
  * @version 1.0.0
  */
-class AggregateStats {
+class CreateWebhookRequest {
     /**
-     * Constructs a new <code>AggregateStats</code>.
-     * @alias module:sendpost/model/AggregateStats
+     * Constructs a new <code>CreateWebhookRequest</code>.
+     * @alias module:sendpost/model/CreateWebhookRequest
      */
     constructor() { 
         
-        AggregateStats.initialize(this);
+        CreateWebhookRequest.initialize(this);
     }
 
     /**
@@ -37,205 +37,303 @@ class AggregateStats {
     }
 
     /**
-     * Constructs a <code>AggregateStats</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>CreateWebhookRequest</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:sendpost/model/AggregateStats} obj Optional instance to populate.
-     * @return {module:sendpost/model/AggregateStats} The populated <code>AggregateStats</code> instance.
+     * @param {module:sendpost/model/CreateWebhookRequest} obj Optional instance to populate.
+     * @return {module:sendpost/model/CreateWebhookRequest} The populated <code>CreateWebhookRequest</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new AggregateStats();
+            obj = obj || new CreateWebhookRequest();
 
-            if (data.hasOwnProperty('processed')) {
-                obj['processed'] = ApiClient.convertToType(data['processed'], 'Number');
+            if (data.hasOwnProperty('enabled')) {
+                obj['enabled'] = ApiClient.convertToType(data['enabled'], 'Boolean');
             }
-            if (data.hasOwnProperty('sent')) {
-                obj['sent'] = ApiClient.convertToType(data['sent'], 'Number');
+            if (data.hasOwnProperty('url')) {
+                obj['url'] = ApiClient.convertToType(data['url'], 'String');
+            }
+            if (data.hasOwnProperty('processed')) {
+                obj['processed'] = ApiClient.convertToType(data['processed'], 'Boolean');
             }
             if (data.hasOwnProperty('delivered')) {
-                obj['delivered'] = ApiClient.convertToType(data['delivered'], 'Number');
+                obj['delivered'] = ApiClient.convertToType(data['delivered'], 'Boolean');
             }
             if (data.hasOwnProperty('dropped')) {
-                obj['dropped'] = ApiClient.convertToType(data['dropped'], 'Number');
-            }
-            if (data.hasOwnProperty('smtpDropped')) {
-                obj['smtpDropped'] = ApiClient.convertToType(data['smtpDropped'], 'Number');
-            }
-            if (data.hasOwnProperty('hardBounced')) {
-                obj['hardBounced'] = ApiClient.convertToType(data['hardBounced'], 'Number');
+                obj['dropped'] = ApiClient.convertToType(data['dropped'], 'Boolean');
             }
             if (data.hasOwnProperty('softBounced')) {
-                obj['softBounced'] = ApiClient.convertToType(data['softBounced'], 'Number');
+                obj['softBounced'] = ApiClient.convertToType(data['softBounced'], 'Boolean');
+            }
+            if (data.hasOwnProperty('hardBounced')) {
+                obj['hardBounced'] = ApiClient.convertToType(data['hardBounced'], 'Boolean');
             }
             if (data.hasOwnProperty('opened')) {
-                obj['opened'] = ApiClient.convertToType(data['opened'], 'Number');
+                obj['opened'] = ApiClient.convertToType(data['opened'], 'Boolean');
             }
             if (data.hasOwnProperty('clicked')) {
-                obj['clicked'] = ApiClient.convertToType(data['clicked'], 'Number');
+                obj['clicked'] = ApiClient.convertToType(data['clicked'], 'Boolean');
             }
             if (data.hasOwnProperty('unsubscribed')) {
-                obj['unsubscribed'] = ApiClient.convertToType(data['unsubscribed'], 'Number');
+                obj['unsubscribed'] = ApiClient.convertToType(data['unsubscribed'], 'Boolean');
             }
-            if (data.hasOwnProperty('spams')) {
-                obj['spams'] = ApiClient.convertToType(data['spams'], 'Number');
+            if (data.hasOwnProperty('spam')) {
+                obj['spam'] = ApiClient.convertToType(data['spam'], 'Boolean');
+            }
+            if (data.hasOwnProperty('sent')) {
+                obj['sent'] = ApiClient.convertToType(data['sent'], 'Boolean');
+            }
+            if (data.hasOwnProperty('smtpDropped')) {
+                obj['smtpDropped'] = ApiClient.convertToType(data['smtpDropped'], 'Boolean');
+            }
+            if (data.hasOwnProperty('uniqueOpen')) {
+                obj['uniqueOpen'] = ApiClient.convertToType(data['uniqueOpen'], 'Boolean');
+            }
+            if (data.hasOwnProperty('uniqueClick')) {
+                obj['uniqueClick'] = ApiClient.convertToType(data['uniqueClick'], 'Boolean');
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>AggregateStats</code>.
+     * Validates the JSON data with respect to <code>CreateWebhookRequest</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>AggregateStats</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateWebhookRequest</code>.
      */
     static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['url'] && !(typeof data['url'] === 'string' || data['url'] instanceof String)) {
+            throw new Error("Expected the field `url` to be a primitive type in the JSON string but got " + data['url']);
+        }
 
         return true;
     }
 
 /**
-     * @return {Number}
+     * Returns Is the webhook active or in a paused state?
+     * @return {Boolean}
+     */
+    getEnabled() {
+        return this.enabled;
+    }
+
+    /**
+     * Sets Is the webhook active or in a paused state?
+     * @param {Boolean} enabled Is the webhook active or in a paused state?
+     */
+    setEnabled(enabled) {
+        this['enabled'] = enabled;
+    }
+/**
+     * Returns URL endpoint to which webhook calls are sent.
+     * @return {String}
+     */
+    getUrl() {
+        return this.url;
+    }
+
+    /**
+     * Sets URL endpoint to which webhook calls are sent.
+     * @param {String} url URL endpoint to which webhook calls are sent.
+     */
+    setUrl(url) {
+        this['url'] = url;
+    }
+/**
+     * Returns Trigger webhook on email message being processed.
+     * @return {Boolean}
      */
     getProcessed() {
         return this.processed;
     }
 
     /**
-     * @param {Number} processed
+     * Sets Trigger webhook on email message being processed.
+     * @param {Boolean} processed Trigger webhook on email message being processed.
      */
     setProcessed(processed) {
         this['processed'] = processed;
     }
 /**
-     * @return {Number}
-     */
-    getSent() {
-        return this.sent;
-    }
-
-    /**
-     * @param {Number} sent
-     */
-    setSent(sent) {
-        this['sent'] = sent;
-    }
-/**
-     * @return {Number}
+     * Returns Trigger webhook on email message being delivered.
+     * @return {Boolean}
      */
     getDelivered() {
         return this.delivered;
     }
 
     /**
-     * @param {Number} delivered
+     * Sets Trigger webhook on email message being delivered.
+     * @param {Boolean} delivered Trigger webhook on email message being delivered.
      */
     setDelivered(delivered) {
         this['delivered'] = delivered;
     }
 /**
-     * @return {Number}
+     * Returns Trigger webhook on email message being dropped.
+     * @return {Boolean}
      */
     getDropped() {
         return this.dropped;
     }
 
     /**
-     * @param {Number} dropped
+     * Sets Trigger webhook on email message being dropped.
+     * @param {Boolean} dropped Trigger webhook on email message being dropped.
      */
     setDropped(dropped) {
         this['dropped'] = dropped;
     }
 /**
-     * @return {Number}
-     */
-    getSmtpDropped() {
-        return this.smtpDropped;
-    }
-
-    /**
-     * @param {Number} smtpDropped
-     */
-    setSmtpDropped(smtpDropped) {
-        this['smtpDropped'] = smtpDropped;
-    }
-/**
-     * @return {Number}
-     */
-    getHardBounced() {
-        return this.hardBounced;
-    }
-
-    /**
-     * @param {Number} hardBounced
-     */
-    setHardBounced(hardBounced) {
-        this['hardBounced'] = hardBounced;
-    }
-/**
-     * @return {Number}
+     * Returns Trigger webhook on email message being soft bounced.
+     * @return {Boolean}
      */
     getSoftBounced() {
         return this.softBounced;
     }
 
     /**
-     * @param {Number} softBounced
+     * Sets Trigger webhook on email message being soft bounced.
+     * @param {Boolean} softBounced Trigger webhook on email message being soft bounced.
      */
     setSoftBounced(softBounced) {
         this['softBounced'] = softBounced;
     }
 /**
-     * @return {Number}
+     * Returns Trigger webhook on email message being hard bounced.
+     * @return {Boolean}
+     */
+    getHardBounced() {
+        return this.hardBounced;
+    }
+
+    /**
+     * Sets Trigger webhook on email message being hard bounced.
+     * @param {Boolean} hardBounced Trigger webhook on email message being hard bounced.
+     */
+    setHardBounced(hardBounced) {
+        this['hardBounced'] = hardBounced;
+    }
+/**
+     * Returns Trigger webhook on email message being opened.
+     * @return {Boolean}
      */
     getOpened() {
         return this.opened;
     }
 
     /**
-     * @param {Number} opened
+     * Sets Trigger webhook on email message being opened.
+     * @param {Boolean} opened Trigger webhook on email message being opened.
      */
     setOpened(opened) {
         this['opened'] = opened;
     }
 /**
-     * @return {Number}
+     * Returns Trigger webhook on email message link being clicked.
+     * @return {Boolean}
      */
     getClicked() {
         return this.clicked;
     }
 
     /**
-     * @param {Number} clicked
+     * Sets Trigger webhook on email message link being clicked.
+     * @param {Boolean} clicked Trigger webhook on email message link being clicked.
      */
     setClicked(clicked) {
         this['clicked'] = clicked;
     }
 /**
-     * @return {Number}
+     * Returns Trigger webhook on email message being unsubscribed.
+     * @return {Boolean}
      */
     getUnsubscribed() {
         return this.unsubscribed;
     }
 
     /**
-     * @param {Number} unsubscribed
+     * Sets Trigger webhook on email message being unsubscribed.
+     * @param {Boolean} unsubscribed Trigger webhook on email message being unsubscribed.
      */
     setUnsubscribed(unsubscribed) {
         this['unsubscribed'] = unsubscribed;
     }
 /**
-     * @return {Number}
+     * Returns Trigger webhook on email message being marked as spam.
+     * @return {Boolean}
      */
-    getSpams() {
-        return this.spams;
+    getSpam() {
+        return this.spam;
     }
 
     /**
-     * @param {Number} spams
+     * Sets Trigger webhook on email message being marked as spam.
+     * @param {Boolean} spam Trigger webhook on email message being marked as spam.
      */
-    setSpams(spams) {
-        this['spams'] = spams;
+    setSpam(spam) {
+        this['spam'] = spam;
+    }
+/**
+     * Returns Trigger webhook on email message being sent.
+     * @return {Boolean}
+     */
+    getSent() {
+        return this.sent;
+    }
+
+    /**
+     * Sets Trigger webhook on email message being sent.
+     * @param {Boolean} sent Trigger webhook on email message being sent.
+     */
+    setSent(sent) {
+        this['sent'] = sent;
+    }
+/**
+     * Returns Trigger webhook on email message being dropped by SMTP.
+     * @return {Boolean}
+     */
+    getSmtpDropped() {
+        return this.smtpDropped;
+    }
+
+    /**
+     * Sets Trigger webhook on email message being dropped by SMTP.
+     * @param {Boolean} smtpDropped Trigger webhook on email message being dropped by SMTP.
+     */
+    setSmtpDropped(smtpDropped) {
+        this['smtpDropped'] = smtpDropped;
+    }
+/**
+     * Returns Trigger webhook on unique email opens.
+     * @return {Boolean}
+     */
+    getUniqueOpen() {
+        return this.uniqueOpen;
+    }
+
+    /**
+     * Sets Trigger webhook on unique email opens.
+     * @param {Boolean} uniqueOpen Trigger webhook on unique email opens.
+     */
+    setUniqueOpen(uniqueOpen) {
+        this['uniqueOpen'] = uniqueOpen;
+    }
+/**
+     * Returns Trigger webhook on unique email clicks.
+     * @return {Boolean}
+     */
+    getUniqueClick() {
+        return this.uniqueClick;
+    }
+
+    /**
+     * Sets Trigger webhook on unique email clicks.
+     * @param {Boolean} uniqueClick Trigger webhook on unique email clicks.
+     */
+    setUniqueClick(uniqueClick) {
+        this['uniqueClick'] = uniqueClick;
     }
 
 }
@@ -243,64 +341,99 @@ class AggregateStats {
 
 
 /**
- * @member {Number} processed
+ * Is the webhook active or in a paused state?
+ * @member {Boolean} enabled
  */
-AggregateStats.prototype['processed'] = undefined;
+CreateWebhookRequest.prototype['enabled'] = undefined;
 
 /**
- * @member {Number} sent
+ * URL endpoint to which webhook calls are sent.
+ * @member {String} url
  */
-AggregateStats.prototype['sent'] = undefined;
+CreateWebhookRequest.prototype['url'] = undefined;
 
 /**
- * @member {Number} delivered
+ * Trigger webhook on email message being processed.
+ * @member {Boolean} processed
  */
-AggregateStats.prototype['delivered'] = undefined;
+CreateWebhookRequest.prototype['processed'] = undefined;
 
 /**
- * @member {Number} dropped
+ * Trigger webhook on email message being delivered.
+ * @member {Boolean} delivered
  */
-AggregateStats.prototype['dropped'] = undefined;
+CreateWebhookRequest.prototype['delivered'] = undefined;
 
 /**
- * @member {Number} smtpDropped
+ * Trigger webhook on email message being dropped.
+ * @member {Boolean} dropped
  */
-AggregateStats.prototype['smtpDropped'] = undefined;
+CreateWebhookRequest.prototype['dropped'] = undefined;
 
 /**
- * @member {Number} hardBounced
+ * Trigger webhook on email message being soft bounced.
+ * @member {Boolean} softBounced
  */
-AggregateStats.prototype['hardBounced'] = undefined;
+CreateWebhookRequest.prototype['softBounced'] = undefined;
 
 /**
- * @member {Number} softBounced
+ * Trigger webhook on email message being hard bounced.
+ * @member {Boolean} hardBounced
  */
-AggregateStats.prototype['softBounced'] = undefined;
+CreateWebhookRequest.prototype['hardBounced'] = undefined;
 
 /**
- * @member {Number} opened
+ * Trigger webhook on email message being opened.
+ * @member {Boolean} opened
  */
-AggregateStats.prototype['opened'] = undefined;
+CreateWebhookRequest.prototype['opened'] = undefined;
 
 /**
- * @member {Number} clicked
+ * Trigger webhook on email message link being clicked.
+ * @member {Boolean} clicked
  */
-AggregateStats.prototype['clicked'] = undefined;
+CreateWebhookRequest.prototype['clicked'] = undefined;
 
 /**
- * @member {Number} unsubscribed
+ * Trigger webhook on email message being unsubscribed.
+ * @member {Boolean} unsubscribed
  */
-AggregateStats.prototype['unsubscribed'] = undefined;
+CreateWebhookRequest.prototype['unsubscribed'] = undefined;
 
 /**
- * @member {Number} spams
+ * Trigger webhook on email message being marked as spam.
+ * @member {Boolean} spam
  */
-AggregateStats.prototype['spams'] = undefined;
+CreateWebhookRequest.prototype['spam'] = undefined;
+
+/**
+ * Trigger webhook on email message being sent.
+ * @member {Boolean} sent
+ */
+CreateWebhookRequest.prototype['sent'] = undefined;
+
+/**
+ * Trigger webhook on email message being dropped by SMTP.
+ * @member {Boolean} smtpDropped
+ */
+CreateWebhookRequest.prototype['smtpDropped'] = undefined;
+
+/**
+ * Trigger webhook on unique email opens.
+ * @member {Boolean} uniqueOpen
+ */
+CreateWebhookRequest.prototype['uniqueOpen'] = undefined;
+
+/**
+ * Trigger webhook on unique email clicks.
+ * @member {Boolean} uniqueClick
+ */
+CreateWebhookRequest.prototype['uniqueClick'] = undefined;
 
 
 
 
 
 
-export default AggregateStats;
+export default CreateWebhookRequest;
 

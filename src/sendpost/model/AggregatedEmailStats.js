@@ -50,11 +50,17 @@ class AggregatedEmailStats {
             if (data.hasOwnProperty('processed')) {
                 obj['processed'] = ApiClient.convertToType(data['processed'], 'Number');
             }
+            if (data.hasOwnProperty('sent')) {
+                obj['sent'] = ApiClient.convertToType(data['sent'], 'Number');
+            }
             if (data.hasOwnProperty('delivered')) {
                 obj['delivered'] = ApiClient.convertToType(data['delivered'], 'Number');
             }
             if (data.hasOwnProperty('dropped')) {
                 obj['dropped'] = ApiClient.convertToType(data['dropped'], 'Number');
+            }
+            if (data.hasOwnProperty('smtpDropped')) {
+                obj['smtpDropped'] = ApiClient.convertToType(data['smtpDropped'], 'Number');
             }
             if (data.hasOwnProperty('hardBounced')) {
                 obj['hardBounced'] = ApiClient.convertToType(data['hardBounced'], 'Number');
@@ -104,6 +110,21 @@ class AggregatedEmailStats {
         this['processed'] = processed;
     }
 /**
+     * Returns Total number of emails sent
+     * @return {Number}
+     */
+    getSent() {
+        return this.sent;
+    }
+
+    /**
+     * Sets Total number of emails sent
+     * @param {Number} sent Total number of emails sent
+     */
+    setSent(sent) {
+        this['sent'] = sent;
+    }
+/**
      * Returns Total number of emails successfully delivered to SMTP
      * @return {Number}
      */
@@ -132,6 +153,21 @@ class AggregatedEmailStats {
      */
     setDropped(dropped) {
         this['dropped'] = dropped;
+    }
+/**
+     * Returns Total number of emails dropped by SMTP
+     * @return {Number}
+     */
+    getSmtpDropped() {
+        return this.smtpDropped;
+    }
+
+    /**
+     * Sets Total number of emails dropped by SMTP
+     * @param {Number} smtpDropped Total number of emails dropped by SMTP
+     */
+    setSmtpDropped(smtpDropped) {
+        this['smtpDropped'] = smtpDropped;
     }
 /**
      * Returns Total number of hard bounce errors
@@ -235,6 +271,12 @@ class AggregatedEmailStats {
 AggregatedEmailStats.prototype['processed'] = undefined;
 
 /**
+ * Total number of emails sent
+ * @member {Number} sent
+ */
+AggregatedEmailStats.prototype['sent'] = undefined;
+
+/**
  * Total number of emails successfully delivered to SMTP
  * @member {Number} delivered
  */
@@ -245,6 +287,12 @@ AggregatedEmailStats.prototype['delivered'] = undefined;
  * @member {Number} dropped
  */
 AggregatedEmailStats.prototype['dropped'] = undefined;
+
+/**
+ * Total number of emails dropped by SMTP
+ * @member {Number} smtpDropped
+ */
+AggregatedEmailStats.prototype['smtpDropped'] = undefined;
 
 /**
  * Total number of hard bounce errors
