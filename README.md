@@ -1,6 +1,17 @@
-# sendpost-javascript-sdk
+# sendpost-js-sdk
 
-sendpost - JavaScript client for sendpost-javascript-sdk
+SendPost JavaScript SDK - Official JavaScript client library for SendPost API
+
+[![npm version](https://badge.fury.io/js/sendpost-js-sdk.svg)](https://www.npmjs.com/package/sendpost-js-sdk)
+
+## Installation
+
+```bash
+npm install sendpost-js-sdk
+```
+
+**Package:** [https://www.npmjs.com/package/sendpost-js-sdk](https://www.npmjs.com/package/sendpost-js-sdk)
+
 # Introduction
 
 SendPost provides email API and SMTP relay which can be used not just to send & measure but also alert & optimised email sending.
@@ -148,7 +159,7 @@ We have native SendPost SDKs in the following programming languages. You can int
 
 * [PHP](https://github.com/sendpost/sendpost_php_sdk)
 
-* [Javascript](https://github.com/sendpost/sendpost_javascript_sdk)
+* [Javascript](https://www.npmjs.com/package/sendpost-js-sdk)
 
 * [Ruby](https://github.com/sendpost/sendpost_ruby_sdk)
 
@@ -510,7 +521,7 @@ To publish the library as a [npm](https://www.npmjs.com/), please follow the pro
 Then install it via:
 
 ```shell
-npm install sendpost-javascript-sdk --save
+npm install sendpost-js-sdk --save
 ```
 
 Finally, you need to build the module:
@@ -533,7 +544,7 @@ Next, [link](https://docs.npmjs.com/cli/link) it globally in npm with the follow
 npm link
 ```
 
-To use the link you just defined in your project, switch to the directory you want to use your sendpost-javascript-sdk from, and run:
+To use the link you just defined in your project, switch to the directory you want to use your sendpost-js-sdk from, and run:
 
 ```shell
 npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
@@ -547,11 +558,11 @@ npm run build
 
 #### git
 
-If the library is hosted at a git repository, e.g.https://github.com/sendpost/sendpost-javascript-sdk
+If the library is hosted at a git repository, e.g.https://github.com/sendpost/sendpost-js-sdk
 then install it via:
 
 ```shell
-    npm install sendpost/sendpost-javascript-sdk --save
+    npm install sendpost/sendpost-js-sdk --save
 ```
 
 ### For browser
@@ -588,8 +599,10 @@ module: {
 
 Please follow the [installation](#installation) instruction and execute the following JS code:
 
+### Using CommonJS (require)
+
 ```javascript
-var sendpost = require('sendpost-javascript-sdk');
+var sendpost = require('sendpost-js-sdk');
 
 var defaultClient = sendpost.ApiClient.instance;
 // Configure API key authorization: subAccountAuth
@@ -597,6 +610,22 @@ var subAccountAuth = defaultClient.authentications['subAccountAuth'];
 subAccountAuth.apiKey = "YOUR API KEY"
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //subAccountAuth.apiKeyPrefix['X-SubAccount-ApiKey'] = "Token"
+```
+
+### Using ES Modules (import)
+
+```javascript
+import {
+    ApiClient,
+    EmailApi,
+    EmailMessageObject,
+    EmailAddress,
+    Recipient
+} from 'sendpost-js-sdk';
+
+// Initialize API client
+const apiClient = new ApiClient('https://api.sendpost.io/api/v1');
+apiClient.authentications['subAccountAuth'].apiKey = 'YOUR_SUB_ACCOUNT_API_KEY';
 
 var api = new sendpost.DomainApi()
 var opts = {
