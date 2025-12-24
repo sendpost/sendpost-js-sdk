@@ -57,6 +57,9 @@ class IP {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
+            if (data.hasOwnProperty('labels')) {
+                obj['labels'] = ApiClient.convertToType(data['labels'], ['String']);
+            }
             if (data.hasOwnProperty('publicIP')) {
                 obj['publicIP'] = ApiClient.convertToType(data['publicIP'], 'String');
             }
@@ -108,6 +111,48 @@ class IP {
             if (data.hasOwnProperty('attSettings')) {
                 obj['attSettings'] = ApiClient.convertToType(data['attSettings'], 'String');
             }
+            if (data.hasOwnProperty('office365Settings')) {
+                obj['office365Settings'] = ApiClient.convertToType(data['office365Settings'], 'String');
+            }
+            if (data.hasOwnProperty('googleworkspaceSettings')) {
+                obj['googleworkspaceSettings'] = ApiClient.convertToType(data['googleworkspaceSettings'], 'String');
+            }
+            if (data.hasOwnProperty('proofpointSettings')) {
+                obj['proofpointSettings'] = ApiClient.convertToType(data['proofpointSettings'], 'String');
+            }
+            if (data.hasOwnProperty('mimecastSettings')) {
+                obj['mimecastSettings'] = ApiClient.convertToType(data['mimecastSettings'], 'String');
+            }
+            if (data.hasOwnProperty('barracudaSettings')) {
+                obj['barracudaSettings'] = ApiClient.convertToType(data['barracudaSettings'], 'String');
+            }
+            if (data.hasOwnProperty('ciscoironportSettings')) {
+                obj['ciscoironportSettings'] = ApiClient.convertToType(data['ciscoironportSettings'], 'String');
+            }
+            if (data.hasOwnProperty('rackspaceSettings')) {
+                obj['rackspaceSettings'] = ApiClient.convertToType(data['rackspaceSettings'], 'String');
+            }
+            if (data.hasOwnProperty('zohobusinessSettings')) {
+                obj['zohobusinessSettings'] = ApiClient.convertToType(data['zohobusinessSettings'], 'String');
+            }
+            if (data.hasOwnProperty('amazonworkmailSettings')) {
+                obj['amazonworkmailSettings'] = ApiClient.convertToType(data['amazonworkmailSettings'], 'String');
+            }
+            if (data.hasOwnProperty('symantecSettings')) {
+                obj['symantecSettings'] = ApiClient.convertToType(data['symantecSettings'], 'String');
+            }
+            if (data.hasOwnProperty('fortinetSettings')) {
+                obj['fortinetSettings'] = ApiClient.convertToType(data['fortinetSettings'], 'String');
+            }
+            if (data.hasOwnProperty('sophosSettings')) {
+                obj['sophosSettings'] = ApiClient.convertToType(data['sophosSettings'], 'String');
+            }
+            if (data.hasOwnProperty('trendmicroSettings')) {
+                obj['trendmicroSettings'] = ApiClient.convertToType(data['trendmicroSettings'], 'String');
+            }
+            if (data.hasOwnProperty('checkpointSettings')) {
+                obj['checkpointSettings'] = ApiClient.convertToType(data['checkpointSettings'], 'String');
+            }
             if (data.hasOwnProperty('created')) {
                 obj['created'] = ApiClient.convertToType(data['created'], 'Number');
             }
@@ -138,6 +183,10 @@ class IP {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['labels'])) {
+            throw new Error("Expected the field `labels` to be an array in the JSON data but got " + data['labels']);
         }
         // ensure the json data is a string
         if (data['publicIP'] && !(typeof data['publicIP'] === 'string' || data['publicIP'] instanceof String)) {
@@ -200,6 +249,62 @@ class IP {
             throw new Error("Expected the field `attSettings` to be a primitive type in the JSON string but got " + data['attSettings']);
         }
         // ensure the json data is a string
+        if (data['office365Settings'] && !(typeof data['office365Settings'] === 'string' || data['office365Settings'] instanceof String)) {
+            throw new Error("Expected the field `office365Settings` to be a primitive type in the JSON string but got " + data['office365Settings']);
+        }
+        // ensure the json data is a string
+        if (data['googleworkspaceSettings'] && !(typeof data['googleworkspaceSettings'] === 'string' || data['googleworkspaceSettings'] instanceof String)) {
+            throw new Error("Expected the field `googleworkspaceSettings` to be a primitive type in the JSON string but got " + data['googleworkspaceSettings']);
+        }
+        // ensure the json data is a string
+        if (data['proofpointSettings'] && !(typeof data['proofpointSettings'] === 'string' || data['proofpointSettings'] instanceof String)) {
+            throw new Error("Expected the field `proofpointSettings` to be a primitive type in the JSON string but got " + data['proofpointSettings']);
+        }
+        // ensure the json data is a string
+        if (data['mimecastSettings'] && !(typeof data['mimecastSettings'] === 'string' || data['mimecastSettings'] instanceof String)) {
+            throw new Error("Expected the field `mimecastSettings` to be a primitive type in the JSON string but got " + data['mimecastSettings']);
+        }
+        // ensure the json data is a string
+        if (data['barracudaSettings'] && !(typeof data['barracudaSettings'] === 'string' || data['barracudaSettings'] instanceof String)) {
+            throw new Error("Expected the field `barracudaSettings` to be a primitive type in the JSON string but got " + data['barracudaSettings']);
+        }
+        // ensure the json data is a string
+        if (data['ciscoironportSettings'] && !(typeof data['ciscoironportSettings'] === 'string' || data['ciscoironportSettings'] instanceof String)) {
+            throw new Error("Expected the field `ciscoironportSettings` to be a primitive type in the JSON string but got " + data['ciscoironportSettings']);
+        }
+        // ensure the json data is a string
+        if (data['rackspaceSettings'] && !(typeof data['rackspaceSettings'] === 'string' || data['rackspaceSettings'] instanceof String)) {
+            throw new Error("Expected the field `rackspaceSettings` to be a primitive type in the JSON string but got " + data['rackspaceSettings']);
+        }
+        // ensure the json data is a string
+        if (data['zohobusinessSettings'] && !(typeof data['zohobusinessSettings'] === 'string' || data['zohobusinessSettings'] instanceof String)) {
+            throw new Error("Expected the field `zohobusinessSettings` to be a primitive type in the JSON string but got " + data['zohobusinessSettings']);
+        }
+        // ensure the json data is a string
+        if (data['amazonworkmailSettings'] && !(typeof data['amazonworkmailSettings'] === 'string' || data['amazonworkmailSettings'] instanceof String)) {
+            throw new Error("Expected the field `amazonworkmailSettings` to be a primitive type in the JSON string but got " + data['amazonworkmailSettings']);
+        }
+        // ensure the json data is a string
+        if (data['symantecSettings'] && !(typeof data['symantecSettings'] === 'string' || data['symantecSettings'] instanceof String)) {
+            throw new Error("Expected the field `symantecSettings` to be a primitive type in the JSON string but got " + data['symantecSettings']);
+        }
+        // ensure the json data is a string
+        if (data['fortinetSettings'] && !(typeof data['fortinetSettings'] === 'string' || data['fortinetSettings'] instanceof String)) {
+            throw new Error("Expected the field `fortinetSettings` to be a primitive type in the JSON string but got " + data['fortinetSettings']);
+        }
+        // ensure the json data is a string
+        if (data['sophosSettings'] && !(typeof data['sophosSettings'] === 'string' || data['sophosSettings'] instanceof String)) {
+            throw new Error("Expected the field `sophosSettings` to be a primitive type in the JSON string but got " + data['sophosSettings']);
+        }
+        // ensure the json data is a string
+        if (data['trendmicroSettings'] && !(typeof data['trendmicroSettings'] === 'string' || data['trendmicroSettings'] instanceof String)) {
+            throw new Error("Expected the field `trendmicroSettings` to be a primitive type in the JSON string but got " + data['trendmicroSettings']);
+        }
+        // ensure the json data is a string
+        if (data['checkpointSettings'] && !(typeof data['checkpointSettings'] === 'string' || data['checkpointSettings'] instanceof String)) {
+            throw new Error("Expected the field `checkpointSettings` to be a primitive type in the JSON string but got " + data['checkpointSettings']);
+        }
+        // ensure the json data is a string
         if (data['infraClassification'] && !(typeof data['infraClassification'] === 'string' || data['infraClassification'] instanceof String)) {
             throw new Error("Expected the field `infraClassification` to be a primitive type in the JSON string but got " + data['infraClassification']);
         }
@@ -225,6 +330,21 @@ class IP {
      */
     setId(id) {
         this['id'] = id;
+    }
+/**
+     * Returns Labels associated with the IP
+     * @return {Array.<String>}
+     */
+    getLabels() {
+        return this.labels;
+    }
+
+    /**
+     * Sets Labels associated with the IP
+     * @param {Array.<String>} labels Labels associated with the IP
+     */
+    setLabels(labels) {
+        this['labels'] = labels;
     }
 /**
      * Returns The public IP address associated with the resource
@@ -482,6 +602,216 @@ class IP {
         this['attSettings'] = attSettings;
     }
 /**
+     * Returns Configuration for Office365 delivery settings in JSON format
+     * @return {String}
+     */
+    getOffice365Settings() {
+        return this.office365Settings;
+    }
+
+    /**
+     * Sets Configuration for Office365 delivery settings in JSON format
+     * @param {String} office365Settings Configuration for Office365 delivery settings in JSON format
+     */
+    setOffice365Settings(office365Settings) {
+        this['office365Settings'] = office365Settings;
+    }
+/**
+     * Returns Configuration for Google Workspace delivery settings in JSON format
+     * @return {String}
+     */
+    getGoogleworkspaceSettings() {
+        return this.googleworkspaceSettings;
+    }
+
+    /**
+     * Sets Configuration for Google Workspace delivery settings in JSON format
+     * @param {String} googleworkspaceSettings Configuration for Google Workspace delivery settings in JSON format
+     */
+    setGoogleworkspaceSettings(googleworkspaceSettings) {
+        this['googleworkspaceSettings'] = googleworkspaceSettings;
+    }
+/**
+     * Returns Configuration for Proofpoint delivery settings in JSON format
+     * @return {String}
+     */
+    getProofpointSettings() {
+        return this.proofpointSettings;
+    }
+
+    /**
+     * Sets Configuration for Proofpoint delivery settings in JSON format
+     * @param {String} proofpointSettings Configuration for Proofpoint delivery settings in JSON format
+     */
+    setProofpointSettings(proofpointSettings) {
+        this['proofpointSettings'] = proofpointSettings;
+    }
+/**
+     * Returns Configuration for Mimecast delivery settings in JSON format
+     * @return {String}
+     */
+    getMimecastSettings() {
+        return this.mimecastSettings;
+    }
+
+    /**
+     * Sets Configuration for Mimecast delivery settings in JSON format
+     * @param {String} mimecastSettings Configuration for Mimecast delivery settings in JSON format
+     */
+    setMimecastSettings(mimecastSettings) {
+        this['mimecastSettings'] = mimecastSettings;
+    }
+/**
+     * Returns Configuration for Barracuda delivery settings in JSON format
+     * @return {String}
+     */
+    getBarracudaSettings() {
+        return this.barracudaSettings;
+    }
+
+    /**
+     * Sets Configuration for Barracuda delivery settings in JSON format
+     * @param {String} barracudaSettings Configuration for Barracuda delivery settings in JSON format
+     */
+    setBarracudaSettings(barracudaSettings) {
+        this['barracudaSettings'] = barracudaSettings;
+    }
+/**
+     * Returns Configuration for Cisco IronPort delivery settings in JSON format
+     * @return {String}
+     */
+    getCiscoironportSettings() {
+        return this.ciscoironportSettings;
+    }
+
+    /**
+     * Sets Configuration for Cisco IronPort delivery settings in JSON format
+     * @param {String} ciscoironportSettings Configuration for Cisco IronPort delivery settings in JSON format
+     */
+    setCiscoironportSettings(ciscoironportSettings) {
+        this['ciscoironportSettings'] = ciscoironportSettings;
+    }
+/**
+     * Returns Configuration for Rackspace delivery settings in JSON format
+     * @return {String}
+     */
+    getRackspaceSettings() {
+        return this.rackspaceSettings;
+    }
+
+    /**
+     * Sets Configuration for Rackspace delivery settings in JSON format
+     * @param {String} rackspaceSettings Configuration for Rackspace delivery settings in JSON format
+     */
+    setRackspaceSettings(rackspaceSettings) {
+        this['rackspaceSettings'] = rackspaceSettings;
+    }
+/**
+     * Returns Configuration for Zoho Business delivery settings in JSON format
+     * @return {String}
+     */
+    getZohobusinessSettings() {
+        return this.zohobusinessSettings;
+    }
+
+    /**
+     * Sets Configuration for Zoho Business delivery settings in JSON format
+     * @param {String} zohobusinessSettings Configuration for Zoho Business delivery settings in JSON format
+     */
+    setZohobusinessSettings(zohobusinessSettings) {
+        this['zohobusinessSettings'] = zohobusinessSettings;
+    }
+/**
+     * Returns Configuration for Amazon WorkMail delivery settings in JSON format
+     * @return {String}
+     */
+    getAmazonworkmailSettings() {
+        return this.amazonworkmailSettings;
+    }
+
+    /**
+     * Sets Configuration for Amazon WorkMail delivery settings in JSON format
+     * @param {String} amazonworkmailSettings Configuration for Amazon WorkMail delivery settings in JSON format
+     */
+    setAmazonworkmailSettings(amazonworkmailSettings) {
+        this['amazonworkmailSettings'] = amazonworkmailSettings;
+    }
+/**
+     * Returns Configuration for Symantec delivery settings in JSON format
+     * @return {String}
+     */
+    getSymantecSettings() {
+        return this.symantecSettings;
+    }
+
+    /**
+     * Sets Configuration for Symantec delivery settings in JSON format
+     * @param {String} symantecSettings Configuration for Symantec delivery settings in JSON format
+     */
+    setSymantecSettings(symantecSettings) {
+        this['symantecSettings'] = symantecSettings;
+    }
+/**
+     * Returns Configuration for Fortinet delivery settings in JSON format
+     * @return {String}
+     */
+    getFortinetSettings() {
+        return this.fortinetSettings;
+    }
+
+    /**
+     * Sets Configuration for Fortinet delivery settings in JSON format
+     * @param {String} fortinetSettings Configuration for Fortinet delivery settings in JSON format
+     */
+    setFortinetSettings(fortinetSettings) {
+        this['fortinetSettings'] = fortinetSettings;
+    }
+/**
+     * Returns Configuration for Sophos delivery settings in JSON format
+     * @return {String}
+     */
+    getSophosSettings() {
+        return this.sophosSettings;
+    }
+
+    /**
+     * Sets Configuration for Sophos delivery settings in JSON format
+     * @param {String} sophosSettings Configuration for Sophos delivery settings in JSON format
+     */
+    setSophosSettings(sophosSettings) {
+        this['sophosSettings'] = sophosSettings;
+    }
+/**
+     * Returns Configuration for Trend Micro delivery settings in JSON format
+     * @return {String}
+     */
+    getTrendmicroSettings() {
+        return this.trendmicroSettings;
+    }
+
+    /**
+     * Sets Configuration for Trend Micro delivery settings in JSON format
+     * @param {String} trendmicroSettings Configuration for Trend Micro delivery settings in JSON format
+     */
+    setTrendmicroSettings(trendmicroSettings) {
+        this['trendmicroSettings'] = trendmicroSettings;
+    }
+/**
+     * Returns Configuration for Checkpoint delivery settings in JSON format
+     * @return {String}
+     */
+    getCheckpointSettings() {
+        return this.checkpointSettings;
+    }
+
+    /**
+     * Sets Configuration for Checkpoint delivery settings in JSON format
+     * @param {String} checkpointSettings Configuration for Checkpoint delivery settings in JSON format
+     */
+    setCheckpointSettings(checkpointSettings) {
+        this['checkpointSettings'] = checkpointSettings;
+    }
+/**
      * Returns The timestamp (UNIX epoch) when the IP was created
      * @return {Number}
      */
@@ -566,6 +896,12 @@ IP.RequiredProperties = ["id", "publicIP", "created"];
  * @member {Number} id
  */
 IP.prototype['id'] = undefined;
+
+/**
+ * Labels associated with the IP
+ * @member {Array.<String>} labels
+ */
+IP.prototype['labels'] = undefined;
 
 /**
  * The public IP address associated with the resource
@@ -668,6 +1004,90 @@ IP.prototype['defaultSettings'] = undefined;
  * @member {String} attSettings
  */
 IP.prototype['attSettings'] = undefined;
+
+/**
+ * Configuration for Office365 delivery settings in JSON format
+ * @member {String} office365Settings
+ */
+IP.prototype['office365Settings'] = undefined;
+
+/**
+ * Configuration for Google Workspace delivery settings in JSON format
+ * @member {String} googleworkspaceSettings
+ */
+IP.prototype['googleworkspaceSettings'] = undefined;
+
+/**
+ * Configuration for Proofpoint delivery settings in JSON format
+ * @member {String} proofpointSettings
+ */
+IP.prototype['proofpointSettings'] = undefined;
+
+/**
+ * Configuration for Mimecast delivery settings in JSON format
+ * @member {String} mimecastSettings
+ */
+IP.prototype['mimecastSettings'] = undefined;
+
+/**
+ * Configuration for Barracuda delivery settings in JSON format
+ * @member {String} barracudaSettings
+ */
+IP.prototype['barracudaSettings'] = undefined;
+
+/**
+ * Configuration for Cisco IronPort delivery settings in JSON format
+ * @member {String} ciscoironportSettings
+ */
+IP.prototype['ciscoironportSettings'] = undefined;
+
+/**
+ * Configuration for Rackspace delivery settings in JSON format
+ * @member {String} rackspaceSettings
+ */
+IP.prototype['rackspaceSettings'] = undefined;
+
+/**
+ * Configuration for Zoho Business delivery settings in JSON format
+ * @member {String} zohobusinessSettings
+ */
+IP.prototype['zohobusinessSettings'] = undefined;
+
+/**
+ * Configuration for Amazon WorkMail delivery settings in JSON format
+ * @member {String} amazonworkmailSettings
+ */
+IP.prototype['amazonworkmailSettings'] = undefined;
+
+/**
+ * Configuration for Symantec delivery settings in JSON format
+ * @member {String} symantecSettings
+ */
+IP.prototype['symantecSettings'] = undefined;
+
+/**
+ * Configuration for Fortinet delivery settings in JSON format
+ * @member {String} fortinetSettings
+ */
+IP.prototype['fortinetSettings'] = undefined;
+
+/**
+ * Configuration for Sophos delivery settings in JSON format
+ * @member {String} sophosSettings
+ */
+IP.prototype['sophosSettings'] = undefined;
+
+/**
+ * Configuration for Trend Micro delivery settings in JSON format
+ * @member {String} trendmicroSettings
+ */
+IP.prototype['trendmicroSettings'] = undefined;
+
+/**
+ * Configuration for Checkpoint delivery settings in JSON format
+ * @member {String} checkpointSettings
+ */
+IP.prototype['checkpointSettings'] = undefined;
 
 /**
  * The timestamp (UNIX epoch) when the IP was created

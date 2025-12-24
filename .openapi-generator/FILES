@@ -167,5 +167,3 @@ src/sendpost/model/UpdateWebhook.js
 src/sendpost/model/UserAgent.js
 src/sendpost/model/Webhook.js
 src/sendpost/model/WebhookObject.js
-test/sendpost/model/CreateSubAccountRequest.spec.js
-test/sendpost/model/CreateWebhookRequest.spec.js
