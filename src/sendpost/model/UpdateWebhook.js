@@ -17,7 +17,7 @@ import CreateWebhookRequest from './CreateWebhookRequest';
 /**
  * The UpdateWebhook model module.
  * @module sendpost/model/UpdateWebhook
- * @version 1.0.0
+ * @version 2.0.1
  */
 class UpdateWebhook {
     /**

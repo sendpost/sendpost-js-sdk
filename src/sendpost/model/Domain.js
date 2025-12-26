@@ -16,12 +16,13 @@ import DomainDkim from './DomainDkim';
 import DomainDmarc from './DomainDmarc';
 import DomainGpt from './DomainGpt';
 import DomainReturnPath from './DomainReturnPath';
+import DomainSpf from './DomainSpf';
 import DomainTrack from './DomainTrack';
 
 /**
  * The Domain model module.
  * @module sendpost/model/Domain
- * @version 1.0.0
+ * @version 2.0.1
  */
 class Domain {
     /**
@@ -61,6 +62,9 @@ class Domain {
             if (data.hasOwnProperty('dkim')) {
                 obj['dkim'] = DomainDkim.constructFromObject(data['dkim']);
             }
+            if (data.hasOwnProperty('spf')) {
+                obj['spf'] = DomainSpf.constructFromObject(data['spf']);
+            }
             if (data.hasOwnProperty('returnPath')) {
                 obj['returnPath'] = DomainReturnPath.constructFromObject(data['returnPath']);
             }
@@ -75,6 +79,12 @@ class Domain {
             }
             if (data.hasOwnProperty('dkimVerified')) {
                 obj['dkimVerified'] = ApiClient.convertToType(data['dkimVerified'], 'Boolean');
+            }
+            if (data.hasOwnProperty('spfVerified')) {
+                obj['spfVerified'] = ApiClient.convertToType(data['spfVerified'], 'Boolean');
+            }
+            if (data.hasOwnProperty('mailboxVerified')) {
+                obj['mailboxVerified'] = ApiClient.convertToType(data['mailboxVerified'], 'Boolean');
             }
             if (data.hasOwnProperty('dmarcVerified')) {
                 obj['dmarcVerified'] = ApiClient.convertToType(data['dmarcVerified'], 'Boolean');
@@ -129,6 +139,10 @@ class Domain {
         // validate the optional field `dkim`
         if (data['dkim']) { // data not null
           DomainDkim.validateJSON(data['dkim']);
+        }
+        // validate the optional field `spf`
+        if (data['spf']) { // data not null
+          DomainSpf.validateJSON(data['spf']);
         }
         // validate the optional field `returnPath`
         if (data['returnPath']) { // data not null
@@ -218,6 +232,19 @@ class Domain {
         this['dkim'] = dkim;
     }
 /**
+     * @return {module:sendpost/model/DomainSpf}
+     */
+    getSpf() {
+        return this.spf;
+    }
+
+    /**
+     * @param {module:sendpost/model/DomainSpf} spf
+     */
+    setSpf(spf) {
+        this['spf'] = spf;
+    }
+/**
      * @return {module:sendpost/model/DomainReturnPath}
      */
     getReturnPath() {
@@ -285,6 +312,36 @@ class Domain {
      */
     setDkimVerified(dkimVerified) {
         this['dkimVerified'] = dkimVerified;
+    }
+/**
+     * Returns Status of SPF verification ( true or false )
+     * @return {Boolean}
+     */
+    getSpfVerified() {
+        return this.spfVerified;
+    }
+
+    /**
+     * Sets Status of SPF verification ( true or false )
+     * @param {Boolean} spfVerified Status of SPF verification ( true or false )
+     */
+    setSpfVerified(spfVerified) {
+        this['spfVerified'] = spfVerified;
+    }
+/**
+     * Returns Status of Mailbox verification ( true or false )
+     * @return {Boolean}
+     */
+    getMailboxVerified() {
+        return this.mailboxVerified;
+    }
+
+    /**
+     * Sets Status of Mailbox verification ( true or false )
+     * @param {Boolean} mailboxVerified Status of Mailbox verification ( true or false )
+     */
+    setMailboxVerified(mailboxVerified) {
+        this['mailboxVerified'] = mailboxVerified;
     }
 /**
      * Returns Status of DMARC verification ( true or false)
@@ -487,6 +544,11 @@ Domain.prototype['name'] = undefined;
 Domain.prototype['dkim'] = undefined;
 
 /**
+ * @member {module:sendpost/model/DomainSpf} spf
+ */
+Domain.prototype['spf'] = undefined;
+
+/**
  * @member {module:sendpost/model/DomainReturnPath} returnPath
  */
 Domain.prototype['returnPath'] = undefined;
@@ -512,6 +574,18 @@ Domain.prototype['dkimConfig'] = undefined;
  * @member {Boolean} dkimVerified
  */
 Domain.prototype['dkimVerified'] = undefined;
+
+/**
+ * Status of SPF verification ( true or false )
+ * @member {Boolean} spfVerified
+ */
+Domain.prototype['spfVerified'] = undefined;
+
+/**
+ * Status of Mailbox verification ( true or false )
+ * @member {Boolean} mailboxVerified
+ */
+Domain.prototype['mailboxVerified'] = undefined;
 
 /**
  * Status of DMARC verification ( true or false)

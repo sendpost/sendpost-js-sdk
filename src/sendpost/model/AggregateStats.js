@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AggregateStats model module.
  * @module sendpost/model/AggregateStats
- * @version 1.0.0
+ * @version 2.0.1
  */
 class AggregateStats {
     /**

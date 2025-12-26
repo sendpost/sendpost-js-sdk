@@ -14,18 +14,18 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The CreateSuppressionRequestUnsubscribeInner model module.
- * @module sendpost/model/CreateSuppressionRequestUnsubscribeInner
+ * The Label model module.
+ * @module sendpost/model/Label
  * @version 2.0.1
  */
-class CreateSuppressionRequestUnsubscribeInner {
+class Label {
     /**
-     * Constructs a new <code>CreateSuppressionRequestUnsubscribeInner</code>.
-     * @alias module:sendpost/model/CreateSuppressionRequestUnsubscribeInner
+     * Constructs a new <code>Label</code>.
+     * @alias module:sendpost/model/Label
      */
     constructor() { 
         
-        CreateSuppressionRequestUnsubscribeInner.initialize(this);
+        Label.initialize(this);
     }
 
     /**
@@ -37,49 +37,87 @@ class CreateSuppressionRequestUnsubscribeInner {
     }
 
     /**
-     * Constructs a <code>CreateSuppressionRequestUnsubscribeInner</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>Label</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:sendpost/model/CreateSuppressionRequestUnsubscribeInner} obj Optional instance to populate.
-     * @return {module:sendpost/model/CreateSuppressionRequestUnsubscribeInner} The populated <code>CreateSuppressionRequestUnsubscribeInner</code> instance.
+     * @param {module:sendpost/model/Label} obj Optional instance to populate.
+     * @return {module:sendpost/model/Label} The populated <code>Label</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new CreateSuppressionRequestUnsubscribeInner();
+            obj = obj || new Label();
 
-            if (data.hasOwnProperty('email')) {
-                obj['email'] = ApiClient.convertToType(data['email'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            }
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('created')) {
+                obj['created'] = ApiClient.convertToType(data['created'], 'Number');
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>CreateSuppressionRequestUnsubscribeInner</code>.
+     * Validates the JSON data with respect to <code>Label</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateSuppressionRequestUnsubscribeInner</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Label</code>.
      */
     static validateJSON(data) {
         // ensure the json data is a string
-        if (data['email'] && !(typeof data['email'] === 'string' || data['email'] instanceof String)) {
-            throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
         }
 
         return true;
     }
 
 /**
-     * @return {String}
+     * Returns Unique ID for the label
+     * @return {Number}
      */
-    getEmail() {
-        return this.email;
+    getId() {
+        return this.id;
     }
 
     /**
-     * @param {String} email
+     * Sets Unique ID for the label
+     * @param {Number} id Unique ID for the label
      */
-    setEmail(email) {
-        this['email'] = email;
+    setId(id) {
+        this['id'] = id;
+    }
+/**
+     * Returns Name of the label
+     * @return {String}
+     */
+    getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets Name of the label
+     * @param {String} name Name of the label
+     */
+    setName(name) {
+        this['name'] = name;
+    }
+/**
+     * Returns UNIX epoch nano timestamp when the label was created
+     * @return {Number}
+     */
+    getCreated() {
+        return this.created;
+    }
+
+    /**
+     * Sets UNIX epoch nano timestamp when the label was created
+     * @param {Number} created UNIX epoch nano timestamp when the label was created
+     */
+    setCreated(created) {
+        this['created'] = created;
     }
 
 }
@@ -87,14 +125,27 @@ class CreateSuppressionRequestUnsubscribeInner {
 
 
 /**
- * @member {String} email
+ * Unique ID for the label
+ * @member {Number} id
  */
-CreateSuppressionRequestUnsubscribeInner.prototype['email'] = undefined;
+Label.prototype['id'] = undefined;
+
+/**
+ * Name of the label
+ * @member {String} name
+ */
+Label.prototype['name'] = undefined;
+
+/**
+ * UNIX epoch nano timestamp when the label was created
+ * @member {Number} created
+ */
+Label.prototype['created'] = undefined;
 
 
 
 
 
 
-export default CreateSuppressionRequestUnsubscribeInner;
+export default Label;
 

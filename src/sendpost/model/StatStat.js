@@ -14,18 +14,19 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The CreateSuppressionRequestUnsubscribeInner model module.
- * @module sendpost/model/CreateSuppressionRequestUnsubscribeInner
+ * The StatStat model module.
+ * @module sendpost/model/StatStat
  * @version 2.0.1
  */
-class CreateSuppressionRequestUnsubscribeInner {
+class StatStat {
     /**
-     * Constructs a new <code>CreateSuppressionRequestUnsubscribeInner</code>.
-     * @alias module:sendpost/model/CreateSuppressionRequestUnsubscribeInner
+     * Constructs a new <code>StatStat</code>.
+     * Statistics data for the date
+     * @alias module:sendpost/model/StatStat
      */
     constructor() { 
         
-        CreateSuppressionRequestUnsubscribeInner.initialize(this);
+        StatStat.initialize(this);
     }
 
     /**
@@ -37,49 +38,227 @@ class CreateSuppressionRequestUnsubscribeInner {
     }
 
     /**
-     * Constructs a <code>CreateSuppressionRequestUnsubscribeInner</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>StatStat</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:sendpost/model/CreateSuppressionRequestUnsubscribeInner} obj Optional instance to populate.
-     * @return {module:sendpost/model/CreateSuppressionRequestUnsubscribeInner} The populated <code>CreateSuppressionRequestUnsubscribeInner</code> instance.
+     * @param {module:sendpost/model/StatStat} obj Optional instance to populate.
+     * @return {module:sendpost/model/StatStat} The populated <code>StatStat</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new CreateSuppressionRequestUnsubscribeInner();
+            obj = obj || new StatStat();
 
-            if (data.hasOwnProperty('email')) {
-                obj['email'] = ApiClient.convertToType(data['email'], 'String');
+            if (data.hasOwnProperty('processed')) {
+                obj['processed'] = ApiClient.convertToType(data['processed'], 'Number');
+            }
+            if (data.hasOwnProperty('sent')) {
+                obj['sent'] = ApiClient.convertToType(data['sent'], 'Number');
+            }
+            if (data.hasOwnProperty('delivered')) {
+                obj['delivered'] = ApiClient.convertToType(data['delivered'], 'Number');
+            }
+            if (data.hasOwnProperty('dropped')) {
+                obj['dropped'] = ApiClient.convertToType(data['dropped'], 'Number');
+            }
+            if (data.hasOwnProperty('smtpDropped')) {
+                obj['smtpDropped'] = ApiClient.convertToType(data['smtpDropped'], 'Number');
+            }
+            if (data.hasOwnProperty('hardBounced')) {
+                obj['hardBounced'] = ApiClient.convertToType(data['hardBounced'], 'Number');
+            }
+            if (data.hasOwnProperty('softBounced')) {
+                obj['softBounced'] = ApiClient.convertToType(data['softBounced'], 'Number');
+            }
+            if (data.hasOwnProperty('opened')) {
+                obj['opened'] = ApiClient.convertToType(data['opened'], 'Number');
+            }
+            if (data.hasOwnProperty('clicked')) {
+                obj['clicked'] = ApiClient.convertToType(data['clicked'], 'Number');
+            }
+            if (data.hasOwnProperty('unsubscribed')) {
+                obj['unsubscribed'] = ApiClient.convertToType(data['unsubscribed'], 'Number');
+            }
+            if (data.hasOwnProperty('spam')) {
+                obj['spam'] = ApiClient.convertToType(data['spam'], 'Number');
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>CreateSuppressionRequestUnsubscribeInner</code>.
+     * Validates the JSON data with respect to <code>StatStat</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateSuppressionRequestUnsubscribeInner</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>StatStat</code>.
      */
     static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['email'] && !(typeof data['email'] === 'string' || data['email'] instanceof String)) {
-            throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
-        }
 
         return true;
     }
 
 /**
-     * @return {String}
+     * Returns Number of emails accepted by SendPost API.
+     * @return {Number}
      */
-    getEmail() {
-        return this.email;
+    getProcessed() {
+        return this.processed;
     }
 
     /**
-     * @param {String} email
+     * Sets Number of emails accepted by SendPost API.
+     * @param {Number} processed Number of emails accepted by SendPost API.
      */
-    setEmail(email) {
-        this['email'] = email;
+    setProcessed(processed) {
+        this['processed'] = processed;
+    }
+/**
+     * Returns Number of emails sent.
+     * @return {Number}
+     */
+    getSent() {
+        return this.sent;
+    }
+
+    /**
+     * Sets Number of emails sent.
+     * @param {Number} sent Number of emails sent.
+     */
+    setSent(sent) {
+        this['sent'] = sent;
+    }
+/**
+     * Returns Number of emails we were able to successfully deliver at SMTP without encountering any error
+     * @return {Number}
+     */
+    getDelivered() {
+        return this.delivered;
+    }
+
+    /**
+     * Sets Number of emails we were able to successfully deliver at SMTP without encountering any error
+     * @param {Number} delivered Number of emails we were able to successfully deliver at SMTP without encountering any error
+     */
+    setDelivered(delivered) {
+        this['delivered'] = delivered;
+    }
+/**
+     * Returns Number of emails drop without attempting to deliver either because the email is invalid or email in in existing suppression list
+     * @return {Number}
+     */
+    getDropped() {
+        return this.dropped;
+    }
+
+    /**
+     * Sets Number of emails drop without attempting to deliver either because the email is invalid or email in in existing suppression list
+     * @param {Number} dropped Number of emails drop without attempting to deliver either because the email is invalid or email in in existing suppression list
+     */
+    setDropped(dropped) {
+        this['dropped'] = dropped;
+    }
+/**
+     * Returns Number of emails dropped by SMTP.
+     * @return {Number}
+     */
+    getSmtpDropped() {
+        return this.smtpDropped;
+    }
+
+    /**
+     * Sets Number of emails dropped by SMTP.
+     * @param {Number} smtpDropped Number of emails dropped by SMTP.
+     */
+    setSmtpDropped(smtpDropped) {
+        this['smtpDropped'] = smtpDropped;
+    }
+/**
+     * Returns Number of emails where we got SMTP hard bounce error code by the recipient mail provider
+     * @return {Number}
+     */
+    getHardBounced() {
+        return this.hardBounced;
+    }
+
+    /**
+     * Sets Number of emails where we got SMTP hard bounce error code by the recipient mail provider
+     * @param {Number} hardBounced Number of emails where we got SMTP hard bounce error code by the recipient mail provider
+     */
+    setHardBounced(hardBounced) {
+        this['hardBounced'] = hardBounced;
+    }
+/**
+     * Returns Number of emails where we got temporary soft bounce error by the recipent mail provider. Soft bounced emails are retried upto 5 times over 24 hour period before marking them as hardBounced.
+     * @return {Number}
+     */
+    getSoftBounced() {
+        return this.softBounced;
+    }
+
+    /**
+     * Sets Number of emails where we got temporary soft bounce error by the recipent mail provider. Soft bounced emails are retried upto 5 times over 24 hour period before marking them as hardBounced.
+     * @param {Number} softBounced Number of emails where we got temporary soft bounce error by the recipent mail provider. Soft bounced emails are retried upto 5 times over 24 hour period before marking them as hardBounced.
+     */
+    setSoftBounced(softBounced) {
+        this['softBounced'] = softBounced;
+    }
+/**
+     * Returns Number of emails opened by recipients
+     * @return {Number}
+     */
+    getOpened() {
+        return this.opened;
+    }
+
+    /**
+     * Sets Number of emails opened by recipients
+     * @param {Number} opened Number of emails opened by recipients
+     */
+    setOpened(opened) {
+        this['opened'] = opened;
+    }
+/**
+     * Returns Number of email links clicked by recipients
+     * @return {Number}
+     */
+    getClicked() {
+        return this.clicked;
+    }
+
+    /**
+     * Sets Number of email links clicked by recipients
+     * @param {Number} clicked Number of email links clicked by recipients
+     */
+    setClicked(clicked) {
+        this['clicked'] = clicked;
+    }
+/**
+     * Returns Number of email recipients who unsubscribed from receiving further emails
+     * @return {Number}
+     */
+    getUnsubscribed() {
+        return this.unsubscribed;
+    }
+
+    /**
+     * Sets Number of email recipients who unsubscribed from receiving further emails
+     * @param {Number} unsubscribed Number of email recipients who unsubscribed from receiving further emails
+     */
+    setUnsubscribed(unsubscribed) {
+        this['unsubscribed'] = unsubscribed;
+    }
+/**
+     * Returns Number of email recipients who marked emails as spam
+     * @return {Number}
+     */
+    getSpam() {
+        return this.spam;
+    }
+
+    /**
+     * Sets Number of email recipients who marked emails as spam
+     * @param {Number} spam Number of email recipients who marked emails as spam
+     */
+    setSpam(spam) {
+        this['spam'] = spam;
     }
 
 }
@@ -87,14 +266,75 @@ class CreateSuppressionRequestUnsubscribeInner {
 
 
 /**
- * @member {String} email
+ * Number of emails accepted by SendPost API.
+ * @member {Number} processed
  */
-CreateSuppressionRequestUnsubscribeInner.prototype['email'] = undefined;
+StatStat.prototype['processed'] = undefined;
+
+/**
+ * Number of emails sent.
+ * @member {Number} sent
+ */
+StatStat.prototype['sent'] = undefined;
+
+/**
+ * Number of emails we were able to successfully deliver at SMTP without encountering any error
+ * @member {Number} delivered
+ */
+StatStat.prototype['delivered'] = undefined;
+
+/**
+ * Number of emails drop without attempting to deliver either because the email is invalid or email in in existing suppression list
+ * @member {Number} dropped
+ */
+StatStat.prototype['dropped'] = undefined;
+
+/**
+ * Number of emails dropped by SMTP.
+ * @member {Number} smtpDropped
+ */
+StatStat.prototype['smtpDropped'] = undefined;
+
+/**
+ * Number of emails where we got SMTP hard bounce error code by the recipient mail provider
+ * @member {Number} hardBounced
+ */
+StatStat.prototype['hardBounced'] = undefined;
+
+/**
+ * Number of emails where we got temporary soft bounce error by the recipent mail provider. Soft bounced emails are retried upto 5 times over 24 hour period before marking them as hardBounced.
+ * @member {Number} softBounced
+ */
+StatStat.prototype['softBounced'] = undefined;
+
+/**
+ * Number of emails opened by recipients
+ * @member {Number} opened
+ */
+StatStat.prototype['opened'] = undefined;
+
+/**
+ * Number of email links clicked by recipients
+ * @member {Number} clicked
+ */
+StatStat.prototype['clicked'] = undefined;
+
+/**
+ * Number of email recipients who unsubscribed from receiving further emails
+ * @member {Number} unsubscribed
+ */
+StatStat.prototype['unsubscribed'] = undefined;
+
+/**
+ * Number of email recipients who marked emails as spam
+ * @member {Number} spam
+ */
+StatStat.prototype['spam'] = undefined;
 
 
 
 
 
 
-export default CreateSuppressionRequestUnsubscribeInner;
+export default StatStat;
 

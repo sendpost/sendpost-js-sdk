@@ -21,7 +21,7 @@ import Webhook from '../model/Webhook';
 /**
 * Webhook service.
 * @module sendpost/api/WebhookApi
-* @version 1.0.0
+* @version 2.0.1
 */
 export default class WebhookApi {
 

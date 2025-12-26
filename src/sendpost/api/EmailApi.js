@@ -20,7 +20,7 @@ import EmailResponse from '../model/EmailResponse';
 /**
 * Email service.
 * @module sendpost/api/EmailApi
-* @version 1.0.0
+* @version 2.0.1
 */
 export default class EmailApi {
 

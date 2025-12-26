@@ -17,7 +17,7 @@ import AccountStatsStat from './AccountStatsStat';
 /**
  * The AccountStats model module.
  * @module sendpost/model/AccountStats
- * @version 1.0.0
+ * @version 2.0.1
  */
 class AccountStats {
     /**

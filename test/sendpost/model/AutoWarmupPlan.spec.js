@@ -11,90 +11,241 @@
  *
  */
 
-import ApiClient from '../ApiClient';
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js', process.cwd()+'/src/sendpost/index'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'), require(process.cwd()+'/src/sendpost/index'));
+  } else {
+    // Browser globals (root is window)
+    factory(root.expect, root.sendpost);
+  }
+}(this, function(expect, sendpost) {
+  'use strict';
 
-/**
- * The CreateSuppressionRequestUnsubscribeInner model module.
- * @module sendpost/model/CreateSuppressionRequestUnsubscribeInner
- * @version 2.0.1
- */
-class CreateSuppressionRequestUnsubscribeInner {
-    /**
-     * Constructs a new <code>CreateSuppressionRequestUnsubscribeInner</code>.
-     * @alias module:sendpost/model/CreateSuppressionRequestUnsubscribeInner
-     */
-    constructor() { 
-        
-        CreateSuppressionRequestUnsubscribeInner.initialize(this);
-    }
+  var instance;
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
+  beforeEach(function() {
+    instance = new sendpost.AutoWarmupPlan();
+  });
 
-    /**
-     * Constructs a <code>CreateSuppressionRequestUnsubscribeInner</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:sendpost/model/CreateSuppressionRequestUnsubscribeInner} obj Optional instance to populate.
-     * @return {module:sendpost/model/CreateSuppressionRequestUnsubscribeInner} The populated <code>CreateSuppressionRequestUnsubscribeInner</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new CreateSuppressionRequestUnsubscribeInner();
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
+  }
 
-            if (data.hasOwnProperty('email')) {
-                obj['email'] = ApiClient.convertToType(data['email'], 'String');
-            }
-        }
-        return obj;
-    }
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
-    /**
-     * Validates the JSON data with respect to <code>CreateSuppressionRequestUnsubscribeInner</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateSuppressionRequestUnsubscribeInner</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['email'] && !(typeof data['email'] === 'string' || data['email'] instanceof String)) {
-            throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
-        }
+  describe('AutoWarmupPlan', function() {
+    it('should create an instance of AutoWarmupPlan', function() {
+      // uncomment below and update the code to test AutoWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be.a(sendpost.AutoWarmupPlan);
+    });
 
-        return true;
-    }
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
 
-/**
-     * @return {String}
-     */
-    getEmail() {
-        return this.email;
-    }
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
 
-    /**
-     * @param {String} email
-     */
-    setEmail(email) {
-        this['email'] = email;
-    }
+    it('should have the property gmailWarmupPlan (base name: "gmailWarmupPlan")', function() {
+      // uncomment below and update the code to test the property gmailWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
 
-}
+    it('should have the property yahooWarmupPlan (base name: "yahooWarmupPlan")', function() {
+      // uncomment below and update the code to test the property yahooWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property aolWarmupPlan (base name: "aolWarmupPlan")', function() {
+      // uncomment below and update the code to test the property aolWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property microsoftWarmupPlan (base name: "microsoftWarmupPlan")', function() {
+      // uncomment below and update the code to test the property microsoftWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
 
-/**
- * @member {String} email
- */
-CreateSuppressionRequestUnsubscribeInner.prototype['email'] = undefined;
+    it('should have the property comcastWarmupPlan (base name: "comcastWarmupPlan")', function() {
+      // uncomment below and update the code to test the property comcastWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property yandexWarmupPlan (base name: "yandexWarmupPlan")', function() {
+      // uncomment below and update the code to test the property yandexWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property gmxWarmupPlan (base name: "gmxWarmupPlan")', function() {
+      // uncomment below and update the code to test the property gmxWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property mailruWarmupPlan (base name: "mailruWarmupPlan")', function() {
+      // uncomment below and update the code to test the property mailruWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property icloudWarmupPlan (base name: "icloudWarmupPlan")', function() {
+      // uncomment below and update the code to test the property icloudWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property zohoWarmupPlan (base name: "zohoWarmupPlan")', function() {
+      // uncomment below and update the code to test the property zohoWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
 
-export default CreateSuppressionRequestUnsubscribeInner;
+    it('should have the property qqWarmupPlan (base name: "qqWarmupPlan")', function() {
+      // uncomment below and update the code to test the property qqWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property defaultWarmupPlan (base name: "defaultWarmupPlan")', function() {
+      // uncomment below and update the code to test the property defaultWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property attWarmupPlan (base name: "attWarmupPlan")', function() {
+      // uncomment below and update the code to test the property attWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property office365WarmupPlan (base name: "office365WarmupPlan")', function() {
+      // uncomment below and update the code to test the property office365WarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property googleworkspaceWarmupPlan (base name: "googleworkspaceWarmupPlan")', function() {
+      // uncomment below and update the code to test the property googleworkspaceWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property proofpointWarmupPlan (base name: "proofpointWarmupPlan")', function() {
+      // uncomment below and update the code to test the property proofpointWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property mimecastWarmupPlan (base name: "mimecastWarmupPlan")', function() {
+      // uncomment below and update the code to test the property mimecastWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property barracudaWarmupPlan (base name: "barracudaWarmupPlan")', function() {
+      // uncomment below and update the code to test the property barracudaWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property ciscoironportWarmupPlan (base name: "ciscoironportWarmupPlan")', function() {
+      // uncomment below and update the code to test the property ciscoironportWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property rackspaceWarmupPlan (base name: "rackspaceWarmupPlan")', function() {
+      // uncomment below and update the code to test the property rackspaceWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property zohobusinessWarmupPlan (base name: "zohobusinessWarmupPlan")', function() {
+      // uncomment below and update the code to test the property zohobusinessWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property amazonworkmailWarmupPlan (base name: "amazonworkmailWarmupPlan")', function() {
+      // uncomment below and update the code to test the property amazonworkmailWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property symantecWarmupPlan (base name: "symantecWarmupPlan")', function() {
+      // uncomment below and update the code to test the property symantecWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property fortinetWarmupPlan (base name: "fortinetWarmupPlan")', function() {
+      // uncomment below and update the code to test the property fortinetWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property sophosWarmupPlan (base name: "sophosWarmupPlan")', function() {
+      // uncomment below and update the code to test the property sophosWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property trendmicroWarmupPlan (base name: "trendmicroWarmupPlan")', function() {
+      // uncomment below and update the code to test the property trendmicroWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property checkpointWarmupPlan (base name: "checkpointWarmupPlan")', function() {
+      // uncomment below and update the code to test the property checkpointWarmupPlan
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property created (base name: "created")', function() {
+      // uncomment below and update the code to test the property created
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property updated (base name: "updated")', function() {
+      // uncomment below and update the code to test the property updated
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property warmupInterval (base name: "warmupInterval")', function() {
+      // uncomment below and update the code to test the property warmupInterval
+      //var instance = new sendpost.AutoWarmupPlan();
+      //expect(instance).to.be();
+    });
+
+  });
+
+}));

@@ -19,7 +19,7 @@ import Recipient from './Recipient';
 /**
  * The EmailMessageObject model module.
  * @module sendpost/model/EmailMessageObject
- * @version 1.0.0
+ * @version 2.0.1
  */
 class EmailMessageObject {
     /**

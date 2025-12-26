@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AccountStatsStat model module.
  * @module sendpost/model/AccountStatsStat
- * @version 1.0.0
+ * @version 2.0.1
  */
 class AccountStatsStat {
     /**
@@ -77,8 +77,8 @@ class AccountStatsStat {
             if (data.hasOwnProperty('unsubscribed')) {
                 obj['unsubscribed'] = ApiClient.convertToType(data['unsubscribed'], 'Number');
             }
-            if (data.hasOwnProperty('spams')) {
-                obj['spams'] = ApiClient.convertToType(data['spams'], 'Number');
+            if (data.hasOwnProperty('spam')) {
+                obj['spam'] = ApiClient.convertToType(data['spam'], 'Number');
             }
         }
         return obj;
@@ -225,17 +225,19 @@ class AccountStatsStat {
         this['unsubscribed'] = unsubscribed;
     }
 /**
+     * Returns Number of spam complaints
      * @return {Number}
      */
-    getSpams() {
-        return this.spams;
+    getSpam() {
+        return this.spam;
     }
 
     /**
-     * @param {Number} spams
+     * Sets Number of spam complaints
+     * @param {Number} spam Number of spam complaints
      */
-    setSpams(spams) {
-        this['spams'] = spams;
+    setSpam(spam) {
+        this['spam'] = spam;
     }
 
 }
@@ -293,9 +295,10 @@ AccountStatsStat.prototype['clicked'] = undefined;
 AccountStatsStat.prototype['unsubscribed'] = undefined;
 
 /**
- * @member {Number} spams
+ * Number of spam complaints
+ * @member {Number} spam
  */
-AccountStatsStat.prototype['spams'] = undefined;
+AccountStatsStat.prototype['spam'] = undefined;
 
 
 

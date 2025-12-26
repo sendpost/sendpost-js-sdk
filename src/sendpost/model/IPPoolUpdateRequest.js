@@ -17,7 +17,7 @@ import IP from './IP';
 /**
  * The IPPoolUpdateRequest model module.
  * @module sendpost/model/IPPoolUpdateRequest
- * @version 1.0.0
+ * @version 2.0.1
  */
 class IPPoolUpdateRequest {
     /**

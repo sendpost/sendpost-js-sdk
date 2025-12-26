@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EmailAddress model module.
  * @module sendpost/model/EmailAddress
- * @version 1.0.0
+ * @version 2.0.1
  */
 class EmailAddress {
     /**

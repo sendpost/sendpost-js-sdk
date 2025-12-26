@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EmailStatsStats model module.
  * @module sendpost/model/EmailStatsStats
- * @version 1.0.0
+ * @version 2.0.1
  */
 class EmailStatsStats {
     /**

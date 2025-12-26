@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MessageTo model module.
  * @module sendpost/model/MessageTo
- * @version 1.0.0
+ * @version 2.0.1
  */
 class MessageTo {
     /**

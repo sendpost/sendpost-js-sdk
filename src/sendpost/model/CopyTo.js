@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CopyTo model module.
  * @module sendpost/model/CopyTo
- * @version 1.0.0
+ * @version 2.0.1
  */
 class CopyTo {
     /**

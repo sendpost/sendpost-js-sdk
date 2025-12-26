@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EmailMessageReplyTo model module.
  * @module sendpost/model/EmailMessageReplyTo
- * @version 1.0.0
+ * @version 2.0.1
  */
 class EmailMessageReplyTo {
     /**

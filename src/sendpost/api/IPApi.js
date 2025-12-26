@@ -21,7 +21,7 @@ import IPUpdateRequest from '../model/IPUpdateRequest';
 /**
 * IP service.
 * @module sendpost/api/IPApi
-* @version 1.0.0
+* @version 2.0.1
 */
 export default class IPApi {
 

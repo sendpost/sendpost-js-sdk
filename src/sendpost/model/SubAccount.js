@@ -12,13 +12,13 @@
  */
 
 import ApiClient from '../ApiClient';
-import Member from './Member';
+import Label from './Label';
 import SMTPAuth from './SMTPAuth';
 
 /**
  * The SubAccount model module.
  * @module sendpost/model/SubAccount
- * @version 1.0.0
+ * @version 2.0.1
  */
 class SubAccount {
     /**
@@ -59,7 +59,7 @@ class SubAccount {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
             if (data.hasOwnProperty('labels')) {
-                obj['labels'] = ApiClient.convertToType(data['labels'], ['String']);
+                obj['labels'] = ApiClient.convertToType(data['labels'], [Label]);
             }
             if (data.hasOwnProperty('smtpAuths')) {
                 obj['smtpAuths'] = ApiClient.convertToType(data['smtpAuths'], [SMTPAuth]);
@@ -74,10 +74,10 @@ class SubAccount {
                 obj['created'] = ApiClient.convertToType(data['created'], 'Number');
             }
             if (data.hasOwnProperty('created_by')) {
-                obj['created_by'] = Member.constructFromObject(data['created_by']);
+                obj['created_by'] = ApiClient.convertToType(data['created_by'], {'String': Object});
             }
             if (data.hasOwnProperty('updated_by')) {
-                obj['updated_by'] = Member.constructFromObject(data['updated_by']);
+                obj['updated_by'] = ApiClient.convertToType(data['updated_by'], {'String': Object});
             }
             if (data.hasOwnProperty('blocked')) {
                 obj['blocked'] = ApiClient.convertToType(data['blocked'], 'Boolean');
@@ -115,9 +115,15 @@ class SubAccount {
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
         }
-        // ensure the json data is an array
-        if (!Array.isArray(data['labels'])) {
-            throw new Error("Expected the field `labels` to be an array in the JSON data but got " + data['labels']);
+        if (data['labels']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['labels'])) {
+                throw new Error("Expected the field `labels` to be an array in the JSON data but got " + data['labels']);
+            }
+            // validate the optional field `labels` (array)
+            for (const item of data['labels']) {
+                Label.validateJSON(item);
+            };
         }
         if (data['smtpAuths']) { // data not null
             // ensure the json data is an array
@@ -188,7 +194,7 @@ class SubAccount {
     }
 /**
      * Returns Labels associated with the sub-account
-     * @return {Array.<String>}
+     * @return {Array.<module:sendpost/model/Label>}
      */
     getLabels() {
         return this.labels;
@@ -196,7 +202,7 @@ class SubAccount {
 
     /**
      * Sets Labels associated with the sub-account
-     * @param {Array.<String>} labels Labels associated with the sub-account
+     * @param {Array.<module:sendpost/model/Label>} labels Labels associated with the sub-account
      */
     setLabels(labels) {
         this['labels'] = labels;
@@ -263,7 +269,7 @@ class SubAccount {
     }
 /**
      * Returns Member who created the sub-account
-     * @return {module:sendpost/model/Member}
+     * @return {Object.<String, Object>}
      */
     getCreatedBy() {
         return this.created_by;
@@ -271,14 +277,14 @@ class SubAccount {
 
     /**
      * Sets Member who created the sub-account
-     * @param {module:sendpost/model/Member} createdBy Member who created the sub-account
+     * @param {Object.<String, Object>} createdBy Member who created the sub-account
      */
     setCreatedBy(createdBy) {
         this['created_by'] = createdBy;
     }
 /**
      * Returns Member who updated the sub-account
-     * @return {module:sendpost/model/Member}
+     * @return {Object.<String, Object>}
      */
     getUpdatedBy() {
         return this.updated_by;
@@ -286,7 +292,7 @@ class SubAccount {
 
     /**
      * Sets Member who updated the sub-account
-     * @param {module:sendpost/model/Member} updatedBy Member who updated the sub-account
+     * @param {Object.<String, Object>} updatedBy Member who updated the sub-account
      */
     setUpdatedBy(updatedBy) {
         this['updated_by'] = updatedBy;
@@ -406,7 +412,7 @@ SubAccount.prototype['name'] = undefined;
 
 /**
  * Labels associated with the sub-account
- * @member {Array.<String>} labels
+ * @member {Array.<module:sendpost/model/Label>} labels
  */
 SubAccount.prototype['labels'] = undefined;
 
@@ -436,13 +442,13 @@ SubAccount.prototype['created'] = undefined;
 
 /**
  * Member who created the sub-account
- * @member {module:sendpost/model/Member} created_by
+ * @member {Object.<String, Object>} created_by
  */
 SubAccount.prototype['created_by'] = undefined;
 
 /**
  * Member who updated the sub-account
- * @member {module:sendpost/model/Member} updated_by
+ * @member {Object.<String, Object>} updated_by
  */
 SubAccount.prototype['updated_by'] = undefined;
 

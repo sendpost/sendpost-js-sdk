@@ -21,7 +21,7 @@ import UpdateSubAccount from '../model/UpdateSubAccount';
 /**
 * SubAccount service.
 * @module sendpost/api/SubAccountApi
-* @version 1.0.0
+* @version 2.0.1
 */
 export default class SubAccountApi {
 

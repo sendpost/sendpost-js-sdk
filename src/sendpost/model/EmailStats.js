@@ -17,7 +17,7 @@ import EmailStatsStats from './EmailStatsStats';
 /**
  * The EmailStats model module.
  * @module sendpost/model/EmailStats
- * @version 1.0.0
+ * @version 2.0.1
  */
 class EmailStats {
     /**

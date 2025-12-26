@@ -20,7 +20,7 @@ import Domain from '../model/Domain';
 /**
 * Domain service.
 * @module sendpost/api/DomainApi
-* @version 1.0.0
+* @version 2.0.1
 */
 export default class DomainApi {
 

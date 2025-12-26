@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The OperatingSystem model module.
  * @module sendpost/model/OperatingSystem
- * @version 1.0.0
+ * @version 2.0.1
  */
 class OperatingSystem {
     /**

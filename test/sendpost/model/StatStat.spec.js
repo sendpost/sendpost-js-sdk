@@ -11,90 +11,115 @@
  *
  */
 
-import ApiClient from '../ApiClient';
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js', process.cwd()+'/src/sendpost/index'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'), require(process.cwd()+'/src/sendpost/index'));
+  } else {
+    // Browser globals (root is window)
+    factory(root.expect, root.sendpost);
+  }
+}(this, function(expect, sendpost) {
+  'use strict';
 
-/**
- * The CreateSuppressionRequestUnsubscribeInner model module.
- * @module sendpost/model/CreateSuppressionRequestUnsubscribeInner
- * @version 2.0.1
- */
-class CreateSuppressionRequestUnsubscribeInner {
-    /**
-     * Constructs a new <code>CreateSuppressionRequestUnsubscribeInner</code>.
-     * @alias module:sendpost/model/CreateSuppressionRequestUnsubscribeInner
-     */
-    constructor() { 
-        
-        CreateSuppressionRequestUnsubscribeInner.initialize(this);
-    }
+  var instance;
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
+  beforeEach(function() {
+    instance = new sendpost.StatStat();
+  });
 
-    /**
-     * Constructs a <code>CreateSuppressionRequestUnsubscribeInner</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:sendpost/model/CreateSuppressionRequestUnsubscribeInner} obj Optional instance to populate.
-     * @return {module:sendpost/model/CreateSuppressionRequestUnsubscribeInner} The populated <code>CreateSuppressionRequestUnsubscribeInner</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new CreateSuppressionRequestUnsubscribeInner();
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
+  }
 
-            if (data.hasOwnProperty('email')) {
-                obj['email'] = ApiClient.convertToType(data['email'], 'String');
-            }
-        }
-        return obj;
-    }
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
-    /**
-     * Validates the JSON data with respect to <code>CreateSuppressionRequestUnsubscribeInner</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateSuppressionRequestUnsubscribeInner</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['email'] && !(typeof data['email'] === 'string' || data['email'] instanceof String)) {
-            throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
-        }
+  describe('StatStat', function() {
+    it('should create an instance of StatStat', function() {
+      // uncomment below and update the code to test StatStat
+      //var instance = new sendpost.StatStat();
+      //expect(instance).to.be.a(sendpost.StatStat);
+    });
 
-        return true;
-    }
+    it('should have the property processed (base name: "processed")', function() {
+      // uncomment below and update the code to test the property processed
+      //var instance = new sendpost.StatStat();
+      //expect(instance).to.be();
+    });
 
-/**
-     * @return {String}
-     */
-    getEmail() {
-        return this.email;
-    }
+    it('should have the property sent (base name: "sent")', function() {
+      // uncomment below and update the code to test the property sent
+      //var instance = new sendpost.StatStat();
+      //expect(instance).to.be();
+    });
 
-    /**
-     * @param {String} email
-     */
-    setEmail(email) {
-        this['email'] = email;
-    }
+    it('should have the property delivered (base name: "delivered")', function() {
+      // uncomment below and update the code to test the property delivered
+      //var instance = new sendpost.StatStat();
+      //expect(instance).to.be();
+    });
 
-}
+    it('should have the property dropped (base name: "dropped")', function() {
+      // uncomment below and update the code to test the property dropped
+      //var instance = new sendpost.StatStat();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property smtpDropped (base name: "smtpDropped")', function() {
+      // uncomment below and update the code to test the property smtpDropped
+      //var instance = new sendpost.StatStat();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property hardBounced (base name: "hardBounced")', function() {
+      // uncomment below and update the code to test the property hardBounced
+      //var instance = new sendpost.StatStat();
+      //expect(instance).to.be();
+    });
 
-/**
- * @member {String} email
- */
-CreateSuppressionRequestUnsubscribeInner.prototype['email'] = undefined;
+    it('should have the property softBounced (base name: "softBounced")', function() {
+      // uncomment below and update the code to test the property softBounced
+      //var instance = new sendpost.StatStat();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property opened (base name: "opened")', function() {
+      // uncomment below and update the code to test the property opened
+      //var instance = new sendpost.StatStat();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property clicked (base name: "clicked")', function() {
+      // uncomment below and update the code to test the property clicked
+      //var instance = new sendpost.StatStat();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property unsubscribed (base name: "unsubscribed")', function() {
+      // uncomment below and update the code to test the property unsubscribed
+      //var instance = new sendpost.StatStat();
+      //expect(instance).to.be();
+    });
 
+    it('should have the property spam (base name: "spam")', function() {
+      // uncomment below and update the code to test the property spam
+      //var instance = new sendpost.StatStat();
+      //expect(instance).to.be();
+    });
 
+  });
 
-export default CreateSuppressionRequestUnsubscribeInner;
-
+}));

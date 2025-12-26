@@ -16,7 +16,7 @@ import superagent from "superagent";
 
 /**
 * @module sendpost/ApiClient
-* @version 1.0.0
+* @version 2.0.1
 */
 
 /**
@@ -55,7 +55,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'OpenAPI-Generator/1.0.0/Javascript'
+            'User-Agent': 'OpenAPI-Generator/2.0.1/Javascript'
         };
 
         /**

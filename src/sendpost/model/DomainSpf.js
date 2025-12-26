@@ -14,18 +14,19 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The CreateSuppressionRequestUnsubscribeInner model module.
- * @module sendpost/model/CreateSuppressionRequestUnsubscribeInner
+ * The DomainSpf model module.
+ * @module sendpost/model/DomainSpf
  * @version 2.0.1
  */
-class CreateSuppressionRequestUnsubscribeInner {
+class DomainSpf {
     /**
-     * Constructs a new <code>CreateSuppressionRequestUnsubscribeInner</code>.
-     * @alias module:sendpost/model/CreateSuppressionRequestUnsubscribeInner
+     * Constructs a new <code>DomainSpf</code>.
+     * SPF record host, type and value
+     * @alias module:sendpost/model/DomainSpf
      */
     constructor() { 
         
-        CreateSuppressionRequestUnsubscribeInner.initialize(this);
+        DomainSpf.initialize(this);
     }
 
     /**
@@ -37,32 +38,46 @@ class CreateSuppressionRequestUnsubscribeInner {
     }
 
     /**
-     * Constructs a <code>CreateSuppressionRequestUnsubscribeInner</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>DomainSpf</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:sendpost/model/CreateSuppressionRequestUnsubscribeInner} obj Optional instance to populate.
-     * @return {module:sendpost/model/CreateSuppressionRequestUnsubscribeInner} The populated <code>CreateSuppressionRequestUnsubscribeInner</code> instance.
+     * @param {module:sendpost/model/DomainSpf} obj Optional instance to populate.
+     * @return {module:sendpost/model/DomainSpf} The populated <code>DomainSpf</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new CreateSuppressionRequestUnsubscribeInner();
+            obj = obj || new DomainSpf();
 
-            if (data.hasOwnProperty('email')) {
-                obj['email'] = ApiClient.convertToType(data['email'], 'String');
+            if (data.hasOwnProperty('host')) {
+                obj['host'] = ApiClient.convertToType(data['host'], 'String');
+            }
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
+            }
+            if (data.hasOwnProperty('textValue')) {
+                obj['textValue'] = ApiClient.convertToType(data['textValue'], 'String');
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>CreateSuppressionRequestUnsubscribeInner</code>.
+     * Validates the JSON data with respect to <code>DomainSpf</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateSuppressionRequestUnsubscribeInner</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>DomainSpf</code>.
      */
     static validateJSON(data) {
         // ensure the json data is a string
-        if (data['email'] && !(typeof data['email'] === 'string' || data['email'] instanceof String)) {
-            throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
+        if (data['host'] && !(typeof data['host'] === 'string' || data['host'] instanceof String)) {
+            throw new Error("Expected the field `host` to be a primitive type in the JSON string but got " + data['host']);
+        }
+        // ensure the json data is a string
+        if (data['type'] && !(typeof data['type'] === 'string' || data['type'] instanceof String)) {
+            throw new Error("Expected the field `type` to be a primitive type in the JSON string but got " + data['type']);
+        }
+        // ensure the json data is a string
+        if (data['textValue'] && !(typeof data['textValue'] === 'string' || data['textValue'] instanceof String)) {
+            throw new Error("Expected the field `textValue` to be a primitive type in the JSON string but got " + data['textValue']);
         }
 
         return true;
@@ -71,15 +86,41 @@ class CreateSuppressionRequestUnsubscribeInner {
 /**
      * @return {String}
      */
-    getEmail() {
-        return this.email;
+    getHost() {
+        return this.host;
     }
 
     /**
-     * @param {String} email
+     * @param {String} host
      */
-    setEmail(email) {
-        this['email'] = email;
+    setHost(host) {
+        this['host'] = host;
+    }
+/**
+     * @return {String}
+     */
+    getType() {
+        return this.type;
+    }
+
+    /**
+     * @param {String} type
+     */
+    setType(type) {
+        this['type'] = type;
+    }
+/**
+     * @return {String}
+     */
+    getTextValue() {
+        return this.textValue;
+    }
+
+    /**
+     * @param {String} textValue
+     */
+    setTextValue(textValue) {
+        this['textValue'] = textValue;
     }
 
 }
@@ -87,14 +128,24 @@ class CreateSuppressionRequestUnsubscribeInner {
 
 
 /**
- * @member {String} email
+ * @member {String} host
  */
-CreateSuppressionRequestUnsubscribeInner.prototype['email'] = undefined;
+DomainSpf.prototype['host'] = undefined;
+
+/**
+ * @member {String} type
+ */
+DomainSpf.prototype['type'] = undefined;
+
+/**
+ * @member {String} textValue
+ */
+DomainSpf.prototype['textValue'] = undefined;
 
 
 
 
 
 
-export default CreateSuppressionRequestUnsubscribeInner;
+export default DomainSpf;
 

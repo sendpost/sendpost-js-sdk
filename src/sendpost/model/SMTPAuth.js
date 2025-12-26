@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SMTPAuth model module.
  * @module sendpost/model/SMTPAuth
- * @version 1.0.0
+ * @version 2.0.1
  */
 class SMTPAuth {
     /**

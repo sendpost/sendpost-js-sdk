@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateWebhookRequest model module.
  * @module sendpost/model/CreateWebhookRequest
- * @version 1.0.0
+ * @version 2.0.1
  */
 class CreateWebhookRequest {
     /**

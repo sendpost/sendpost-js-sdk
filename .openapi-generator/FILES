@@ -8,6 +8,7 @@ docs/AggregateStat.md
 docs/AggregateStats.md
 docs/AggregatedEmailStats.md
 docs/Attachment.md
+docs/AutoWarmupPlan.md
 docs/CopyTo.md
 docs/CreateDomainRequest.md
 docs/CreateSubAccountRequest.md
@@ -29,6 +30,7 @@ docs/DomainDkim.md
 docs/DomainDmarc.md
 docs/DomainGpt.md
 docs/DomainReturnPath.md
+docs/DomainSpf.md
 docs/DomainTrack.md
 docs/EIP.md
 docs/EmailAddress.md
@@ -57,6 +59,7 @@ docs/IPPoolDeleteResponse.md
 docs/IPPoolUpdateRequest.md
 docs/IPPoolsApi.md
 docs/IPUpdateRequest.md
+docs/Label.md
 docs/Member.md
 docs/Message.md
 docs/MessageApi.md
@@ -67,7 +70,7 @@ docs/Person.md
 docs/Recipient.md
 docs/SMTPAuth.md
 docs/Stat.md
-docs/StatStats.md
+docs/StatStat.md
 docs/StatsAApi.md
 docs/StatsApi.md
 docs/SubAccount.md
@@ -80,8 +83,6 @@ docs/UpdateWebhook.md
 docs/UserAgent.md
 docs/Webhook.md
 docs/WebhookApi.md
-docs/WebhookObject.md
-docs/WebhookReferenceApi.md
 git_push.sh
 mocha.opts
 package.json
@@ -96,7 +97,6 @@ src/sendpost/api/StatsApi.js
 src/sendpost/api/SubAccountApi.js
 src/sendpost/api/SuppressionApi.js
 src/sendpost/api/WebhookApi.js
-src/sendpost/api/WebhookReferenceApi.js
 src/sendpost/index.js
 src/sendpost/model/AccountStats.js
 src/sendpost/model/AccountStatsStat.js
@@ -104,6 +104,7 @@ src/sendpost/model/AggregateStat.js
 src/sendpost/model/AggregateStats.js
 src/sendpost/model/AggregatedEmailStats.js
 src/sendpost/model/Attachment.js
+src/sendpost/model/AutoWarmupPlan.js
 src/sendpost/model/CopyTo.js
 src/sendpost/model/CreateDomainRequest.js
 src/sendpost/model/CreateSubAccountRequest.js
@@ -124,6 +125,7 @@ src/sendpost/model/DomainDkim.js
 src/sendpost/model/DomainDmarc.js
 src/sendpost/model/DomainGpt.js
 src/sendpost/model/DomainReturnPath.js
+src/sendpost/model/DomainSpf.js
 src/sendpost/model/DomainTrack.js
 src/sendpost/model/EIP.js
 src/sendpost/model/EmailAddress.js
@@ -149,6 +151,7 @@ src/sendpost/model/IPPoolCreateRequest.js
 src/sendpost/model/IPPoolDeleteResponse.js
 src/sendpost/model/IPPoolUpdateRequest.js
 src/sendpost/model/IPUpdateRequest.js
+src/sendpost/model/Label.js
 src/sendpost/model/Member.js
 src/sendpost/model/Message.js
 src/sendpost/model/MessageHeaderTo.js
@@ -158,7 +161,7 @@ src/sendpost/model/Person.js
 src/sendpost/model/Recipient.js
 src/sendpost/model/SMTPAuth.js
 src/sendpost/model/Stat.js
-src/sendpost/model/StatStats.js
+src/sendpost/model/StatStat.js
 src/sendpost/model/SubAccount.js
 src/sendpost/model/Suppression.js
 src/sendpost/model/ThirdPartySendingProvider.js
@@ -166,4 +169,3 @@ src/sendpost/model/UpdateSubAccount.js
 src/sendpost/model/UpdateWebhook.js
 src/sendpost/model/UserAgent.js
 src/sendpost/model/Webhook.js
-src/sendpost/model/WebhookObject.js

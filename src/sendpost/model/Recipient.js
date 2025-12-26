@@ -17,7 +17,7 @@ import CopyTo from './CopyTo';
 /**
  * The Recipient model module.
  * @module sendpost/model/Recipient
- * @version 1.0.0
+ * @version 2.0.1
  */
 class Recipient {
     /**

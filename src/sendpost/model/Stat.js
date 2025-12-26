@@ -12,12 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
-import StatStats from './StatStats';
+import StatStat from './StatStat';
 
 /**
  * The Stat model module.
  * @module sendpost/model/Stat
- * @version 1.0.0
+ * @version 2.0.1
  */
 class Stat {
     /**
@@ -51,8 +51,8 @@ class Stat {
             if (data.hasOwnProperty('date')) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('stats')) {
-                obj['stats'] = StatStats.constructFromObject(data['stats']);
+            if (data.hasOwnProperty('stat')) {
+                obj['stat'] = StatStat.constructFromObject(data['stat']);
             }
         }
         return obj;
@@ -64,9 +64,9 @@ class Stat {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Stat</code>.
      */
     static validateJSON(data) {
-        // validate the optional field `stats`
-        if (data['stats']) { // data not null
-          StatStats.validateJSON(data['stats']);
+        // validate the optional field `stat`
+        if (data['stat']) { // data not null
+          StatStat.validateJSON(data['stat']);
         }
 
         return true;
@@ -88,17 +88,17 @@ class Stat {
         this['date'] = date;
     }
 /**
-     * @return {module:sendpost/model/StatStats}
+     * @return {module:sendpost/model/StatStat}
      */
-    getStats() {
-        return this.stats;
+    getStat() {
+        return this.stat;
     }
 
     /**
-     * @param {module:sendpost/model/StatStats} stats
+     * @param {module:sendpost/model/StatStat} stat
      */
-    setStats(stats) {
-        this['stats'] = stats;
+    setStat(stat) {
+        this['stat'] = stat;
     }
 
 }
@@ -112,9 +112,9 @@ class Stat {
 Stat.prototype['date'] = undefined;
 
 /**
- * @member {module:sendpost/model/StatStats} stats
+ * @member {module:sendpost/model/StatStat} stat
  */
-Stat.prototype['stats'] = undefined;
+Stat.prototype['stat'] = undefined;
 
 
 

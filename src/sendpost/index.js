@@ -19,6 +19,7 @@ import AggregateStat from './model/AggregateStat';
 import AggregateStats from './model/AggregateStats';
 import AggregatedEmailStats from './model/AggregatedEmailStats';
 import Attachment from './model/Attachment';
+import AutoWarmupPlan from './model/AutoWarmupPlan';
 import CopyTo from './model/CopyTo';
 import CreateDomainRequest from './model/CreateDomainRequest';
 import CreateSubAccountRequest from './model/CreateSubAccountRequest';
@@ -39,6 +40,7 @@ import DomainDkim from './model/DomainDkim';
 import DomainDmarc from './model/DomainDmarc';
 import DomainGpt from './model/DomainGpt';
 import DomainReturnPath from './model/DomainReturnPath';
+import DomainSpf from './model/DomainSpf';
 import DomainTrack from './model/DomainTrack';
 import EIP from './model/EIP';
 import EmailAddress from './model/EmailAddress';
@@ -64,6 +66,7 @@ import IPPoolCreateRequest from './model/IPPoolCreateRequest';
 import IPPoolDeleteResponse from './model/IPPoolDeleteResponse';
 import IPPoolUpdateRequest from './model/IPPoolUpdateRequest';
 import IPUpdateRequest from './model/IPUpdateRequest';
+import Label from './model/Label';
 import Member from './model/Member';
 import Message from './model/Message';
 import MessageHeaderTo from './model/MessageHeaderTo';
@@ -73,7 +76,7 @@ import Person from './model/Person';
 import Recipient from './model/Recipient';
 import SMTPAuth from './model/SMTPAuth';
 import Stat from './model/Stat';
-import StatStats from './model/StatStats';
+import StatStat from './model/StatStat';
 import SubAccount from './model/SubAccount';
 import Suppression from './model/Suppression';
 import ThirdPartySendingProvider from './model/ThirdPartySendingProvider';
@@ -81,7 +84,6 @@ import UpdateSubAccount from './model/UpdateSubAccount';
 import UpdateWebhook from './model/UpdateWebhook';
 import UserAgent from './model/UserAgent';
 import Webhook from './model/Webhook';
-import WebhookObject from './model/WebhookObject';
 import DomainApi from './api/DomainApi';
 import EmailApi from './api/EmailApi';
 import IPApi from './api/IPApi';
@@ -123,7 +125,7 @@ import WebhookApi from './api/WebhookApi';
 * </pre>
 * </p>
 * @module sendpost/index
-* @version 1.0.0
+* @version 2.0.1
 */
 export {
     /**
@@ -167,6 +169,12 @@ export {
      * @property {module:sendpost/model/Attachment}
      */
     Attachment,
+
+    /**
+     * The AutoWarmupPlan model constructor.
+     * @property {module:sendpost/model/AutoWarmupPlan}
+     */
+    AutoWarmupPlan,
 
     /**
      * The CopyTo model constructor.
@@ -287,6 +295,12 @@ export {
      * @property {module:sendpost/model/DomainReturnPath}
      */
     DomainReturnPath,
+
+    /**
+     * The DomainSpf model constructor.
+     * @property {module:sendpost/model/DomainSpf}
+     */
+    DomainSpf,
 
     /**
      * The DomainTrack model constructor.
@@ -439,6 +453,12 @@ export {
     IPUpdateRequest,
 
     /**
+     * The Label model constructor.
+     * @property {module:sendpost/model/Label}
+     */
+    Label,
+
+    /**
      * The Member model constructor.
      * @property {module:sendpost/model/Member}
      */
@@ -493,10 +513,10 @@ export {
     Stat,
 
     /**
-     * The StatStats model constructor.
-     * @property {module:sendpost/model/StatStats}
+     * The StatStat model constructor.
+     * @property {module:sendpost/model/StatStat}
      */
-    StatStats,
+    StatStat,
 
     /**
      * The SubAccount model constructor.
@@ -539,12 +559,6 @@ export {
      * @property {module:sendpost/model/Webhook}
      */
     Webhook,
-
-    /**
-     * The WebhookObject model constructor.
-     * @property {module:sendpost/model/WebhookObject}
-     */
-    WebhookObject,
 
     /**
     * The DomainApi service constructor.

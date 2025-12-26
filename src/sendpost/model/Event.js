@@ -17,7 +17,7 @@ import EventMetadata from './EventMetadata';
 /**
  * The Event model module.
  * @module sendpost/model/Event
- * @version 1.0.0
+ * @version 2.0.1
  */
 class Event {
     /**

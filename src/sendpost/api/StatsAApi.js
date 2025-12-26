@@ -21,7 +21,7 @@ import Stat from '../model/Stat';
 /**
 * StatsA service.
 * @module sendpost/api/StatsAApi
-* @version 1.0.0
+* @version 2.0.1
 */
 export default class StatsAApi {
 

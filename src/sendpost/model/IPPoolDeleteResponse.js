@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The IPPoolDeleteResponse model module.
  * @module sendpost/model/IPPoolDeleteResponse
- * @version 1.0.0
+ * @version 2.0.1
  */
 class IPPoolDeleteResponse {
     /**

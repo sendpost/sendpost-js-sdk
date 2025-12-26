@@ -17,7 +17,7 @@ import EIP from './EIP';
 /**
  * The IPPoolCreateRequest model module.
  * @module sendpost/model/IPPoolCreateRequest
- * @version 1.0.0
+ * @version 2.0.1
  */
 class IPPoolCreateRequest {
     /**
@@ -66,6 +66,15 @@ class IPPoolCreateRequest {
             if (data.hasOwnProperty('overflowPool')) {
                 obj['overflowPool'] = ApiClient.convertToType(data['overflowPool'], 'Boolean');
             }
+            if (data.hasOwnProperty('warmupInterval')) {
+                obj['warmupInterval'] = ApiClient.convertToType(data['warmupInterval'], 'Number');
+            }
+            if (data.hasOwnProperty('overflowStrategy')) {
+                obj['overflowStrategy'] = ApiClient.convertToType(data['overflowStrategy'], 'Number');
+            }
+            if (data.hasOwnProperty('overflowPoolName')) {
+                obj['overflowPoolName'] = ApiClient.convertToType(data['overflowPoolName'], 'String');
+            }
         }
         return obj;
     }
@@ -97,6 +106,10 @@ class IPPoolCreateRequest {
         // ensure the json data is a string
         if (data['routingMetaData'] && !(typeof data['routingMetaData'] === 'string' || data['routingMetaData'] instanceof String)) {
             throw new Error("Expected the field `routingMetaData` to be a primitive type in the JSON string but got " + data['routingMetaData']);
+        }
+        // ensure the json data is a string
+        if (data['overflowPoolName'] && !(typeof data['overflowPoolName'] === 'string' || data['overflowPoolName'] instanceof String)) {
+            throw new Error("Expected the field `overflowPoolName` to be a primitive type in the JSON string but got " + data['overflowPoolName']);
         }
 
         return true;
@@ -180,6 +193,51 @@ class IPPoolCreateRequest {
     setOverflowPool(overflowPool) {
         this['overflowPool'] = overflowPool;
     }
+/**
+     * Returns Warmup interval in hours. Must be greater than 0.
+     * @return {Number}
+     */
+    getWarmupInterval() {
+        return this.warmupInterval;
+    }
+
+    /**
+     * Sets Warmup interval in hours. Must be greater than 0.
+     * @param {Number} warmupInterval Warmup interval in hours. Must be greater than 0.
+     */
+    setWarmupInterval(warmupInterval) {
+        this['warmupInterval'] = warmupInterval;
+    }
+/**
+     * Returns Overflow strategy (0 = None, 1 = Use overflow pool)
+     * @return {Number}
+     */
+    getOverflowStrategy() {
+        return this.overflowStrategy;
+    }
+
+    /**
+     * Sets Overflow strategy (0 = None, 1 = Use overflow pool)
+     * @param {Number} overflowStrategy Overflow strategy (0 = None, 1 = Use overflow pool)
+     */
+    setOverflowStrategy(overflowStrategy) {
+        this['overflowStrategy'] = overflowStrategy;
+    }
+/**
+     * Returns Name of the overflow pool (required if overflowStrategy is 1)
+     * @return {String}
+     */
+    getOverflowPoolName() {
+        return this.overflowPoolName;
+    }
+
+    /**
+     * Sets Name of the overflow pool (required if overflowStrategy is 1)
+     * @param {String} overflowPoolName Name of the overflow pool (required if overflowStrategy is 1)
+     */
+    setOverflowPoolName(overflowPoolName) {
+        this['overflowPoolName'] = overflowPoolName;
+    }
 
 }
 
@@ -214,6 +272,24 @@ IPPoolCreateRequest.prototype['routingMetaData'] = undefined;
  * @member {Boolean} overflowPool
  */
 IPPoolCreateRequest.prototype['overflowPool'] = undefined;
+
+/**
+ * Warmup interval in hours. Must be greater than 0.
+ * @member {Number} warmupInterval
+ */
+IPPoolCreateRequest.prototype['warmupInterval'] = undefined;
+
+/**
+ * Overflow strategy (0 = None, 1 = Use overflow pool)
+ * @member {Number} overflowStrategy
+ */
+IPPoolCreateRequest.prototype['overflowStrategy'] = undefined;
+
+/**
+ * Name of the overflow pool (required if overflowStrategy is 1)
+ * @member {String} overflowPoolName
+ */
+IPPoolCreateRequest.prototype['overflowPoolName'] = undefined;
 
 
 

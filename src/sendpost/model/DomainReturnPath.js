@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DomainReturnPath model module.
  * @module sendpost/model/DomainReturnPath
- * @version 1.0.0
+ * @version 2.0.1
  */
 class DomainReturnPath {
     /**

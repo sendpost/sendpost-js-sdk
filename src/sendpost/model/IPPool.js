@@ -18,7 +18,7 @@ import ThirdPartySendingProvider from './ThirdPartySendingProvider';
 /**
  * The IPPool model module.
  * @module sendpost/model/IPPool
- * @version 1.0.0
+ * @version 2.0.1
  */
 class IPPool {
     /**
@@ -55,6 +55,9 @@ class IPPool {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'Number');
+            }
             if (data.hasOwnProperty('created')) {
                 obj['created'] = ApiClient.convertToType(data['created'], 'Number');
             }
@@ -63,6 +66,9 @@ class IPPool {
             }
             if (data.hasOwnProperty('thirdPartySendingProviders')) {
                 obj['thirdPartySendingProviders'] = ApiClient.convertToType(data['thirdPartySendingProviders'], [ThirdPartySendingProvider]);
+            }
+            if (data.hasOwnProperty('toAccountIPPools')) {
+                obj['toAccountIPPools'] = ApiClient.convertToType(data['toAccountIPPools'], [IPPool]);
             }
             if (data.hasOwnProperty('routingStrategy')) {
                 obj['routingStrategy'] = ApiClient.convertToType(data['routingStrategy'], 'Number');
@@ -122,6 +128,16 @@ class IPPool {
                 ThirdPartySendingProvider.validateJSON(item);
             };
         }
+        if (data['toAccountIPPools']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['toAccountIPPools'])) {
+                throw new Error("Expected the field `toAccountIPPools` to be an array in the JSON data but got " + data['toAccountIPPools']);
+            }
+            // validate the optional field `toAccountIPPools` (array)
+            for (const item of data['toAccountIPPools']) {
+                IPPool.validateJSON(item);
+            };
+        }
         // ensure the json data is a string
         if (data['routingMetaData'] && !(typeof data['routingMetaData'] === 'string' || data['routingMetaData'] instanceof String)) {
             throw new Error("Expected the field `routingMetaData` to be a primitive type in the JSON string but got " + data['routingMetaData']);
@@ -165,6 +181,21 @@ class IPPool {
         this['name'] = name;
     }
 /**
+     * Returns Type of IP pool (0 = Shared, 1 = Dedicated)
+     * @return {Number}
+     */
+    getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets Type of IP pool (0 = Shared, 1 = Dedicated)
+     * @param {Number} type Type of IP pool (0 = Shared, 1 = Dedicated)
+     */
+    setType(type) {
+        this['type'] = type;
+    }
+/**
      * @return {Number}
      */
     getCreated() {
@@ -202,6 +233,21 @@ class IPPool {
      */
     setThirdPartySendingProviders(thirdPartySendingProviders) {
         this['thirdPartySendingProviders'] = thirdPartySendingProviders;
+    }
+/**
+     * Returns Related account IP pools
+     * @return {Array.<module:sendpost/model/IPPool>}
+     */
+    getToAccountIPPools() {
+        return this.toAccountIPPools;
+    }
+
+    /**
+     * Sets Related account IP pools
+     * @param {Array.<module:sendpost/model/IPPool>} toAccountIPPools Related account IP pools
+     */
+    setToAccountIPPools(toAccountIPPools) {
+        this['toAccountIPPools'] = toAccountIPPools;
     }
 /**
      * @return {Number}
@@ -329,6 +375,12 @@ IPPool.prototype['id'] = undefined;
 IPPool.prototype['name'] = undefined;
 
 /**
+ * Type of IP pool (0 = Shared, 1 = Dedicated)
+ * @member {Number} type
+ */
+IPPool.prototype['type'] = undefined;
+
+/**
  * @member {Number} created
  */
 IPPool.prototype['created'] = undefined;
@@ -342,6 +394,12 @@ IPPool.prototype['ips'] = undefined;
  * @member {Array.<module:sendpost/model/ThirdPartySendingProvider>} thirdPartySendingProviders
  */
 IPPool.prototype['thirdPartySendingProviders'] = undefined;
+
+/**
+ * Related account IP pools
+ * @member {Array.<module:sendpost/model/IPPool>} toAccountIPPools
+ */
+IPPool.prototype['toAccountIPPools'] = undefined;
 
 /**
  * @member {Number} routingStrategy

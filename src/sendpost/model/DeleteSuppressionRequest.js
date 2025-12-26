@@ -17,7 +17,7 @@ import CreateSuppressionRequestSpamComplaintInner from './CreateSuppressionReque
 /**
  * The DeleteSuppressionRequest model module.
  * @module sendpost/model/DeleteSuppressionRequest
- * @version 1.0.0
+ * @version 2.0.1
  */
 class DeleteSuppressionRequest {
     /**

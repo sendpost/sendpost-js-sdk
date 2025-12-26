@@ -12,12 +12,14 @@
  */
 
 import ApiClient from '../ApiClient';
+import AutoWarmupPlan from './AutoWarmupPlan';
 import Domain from './Domain';
+import Label from './Label';
 
 /**
  * The IP model module.
  * @module sendpost/model/IP
- * @version 1.0.0
+ * @version 2.0.1
  */
 class IP {
     /**
@@ -56,9 +58,6 @@ class IP {
 
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
-            }
-            if (data.hasOwnProperty('labels')) {
-                obj['labels'] = ApiClient.convertToType(data['labels'], ['String']);
             }
             if (data.hasOwnProperty('publicIP')) {
                 obj['publicIP'] = ApiClient.convertToType(data['publicIP'], 'String');
@@ -166,7 +165,10 @@ class IP {
                 obj['state'] = ApiClient.convertToType(data['state'], 'Number');
             }
             if (data.hasOwnProperty('autoWarmupPlan')) {
-                obj['autoWarmupPlan'] = ApiClient.convertToType(data['autoWarmupPlan'], 'String');
+                obj['autoWarmupPlan'] = AutoWarmupPlan.constructFromObject(data['autoWarmupPlan']);
+            }
+            if (data.hasOwnProperty('labels')) {
+                obj['labels'] = ApiClient.convertToType(data['labels'], [Label]);
             }
         }
         return obj;
@@ -184,13 +186,13 @@ class IP {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
-        // ensure the json data is an array
-        if (!Array.isArray(data['labels'])) {
-            throw new Error("Expected the field `labels` to be an array in the JSON data but got " + data['labels']);
-        }
         // ensure the json data is a string
         if (data['publicIP'] && !(typeof data['publicIP'] === 'string' || data['publicIP'] instanceof String)) {
             throw new Error("Expected the field `publicIP` to be a primitive type in the JSON string but got " + data['publicIP']);
+        }
+        // validate the optional field `systemDomain`
+        if (data['systemDomain']) { // data not null
+          Domain.validateJSON(data['systemDomain']);
         }
         // ensure the json data is a string
         if (data['reverseDNSHostname'] && !(typeof data['reverseDNSHostname'] === 'string' || data['reverseDNSHostname'] instanceof String)) {
@@ -308,9 +310,19 @@ class IP {
         if (data['infraClassification'] && !(typeof data['infraClassification'] === 'string' || data['infraClassification'] instanceof String)) {
             throw new Error("Expected the field `infraClassification` to be a primitive type in the JSON string but got " + data['infraClassification']);
         }
-        // ensure the json data is a string
-        if (data['autoWarmupPlan'] && !(typeof data['autoWarmupPlan'] === 'string' || data['autoWarmupPlan'] instanceof String)) {
-            throw new Error("Expected the field `autoWarmupPlan` to be a primitive type in the JSON string but got " + data['autoWarmupPlan']);
+        // validate the optional field `autoWarmupPlan`
+        if (data['autoWarmupPlan']) { // data not null
+          AutoWarmupPlan.validateJSON(data['autoWarmupPlan']);
+        }
+        if (data['labels']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['labels'])) {
+                throw new Error("Expected the field `labels` to be an array in the JSON data but got " + data['labels']);
+            }
+            // validate the optional field `labels` (array)
+            for (const item of data['labels']) {
+                Label.validateJSON(item);
+            };
         }
 
         return true;
@@ -332,21 +344,6 @@ class IP {
         this['id'] = id;
     }
 /**
-     * Returns Labels associated with the IP
-     * @return {Array.<String>}
-     */
-    getLabels() {
-        return this.labels;
-    }
-
-    /**
-     * Sets Labels associated with the IP
-     * @param {Array.<String>} labels Labels associated with the IP
-     */
-    setLabels(labels) {
-        this['labels'] = labels;
-    }
-/**
      * Returns The public IP address associated with the resource
      * @return {String}
      */
@@ -362,7 +359,6 @@ class IP {
         this['publicIP'] = publicIP;
     }
 /**
-     * Returns Details of the system domain associated with the IP
      * @return {module:sendpost/model/Domain}
      */
     getSystemDomain() {
@@ -370,8 +366,7 @@ class IP {
     }
 
     /**
-     * Sets Details of the system domain associated with the IP
-     * @param {module:sendpost/model/Domain} systemDomain Details of the system domain associated with the IP
+     * @param {module:sendpost/model/Domain} systemDomain
      */
     setSystemDomain(systemDomain) {
         this['systemDomain'] = systemDomain;
@@ -782,7 +777,7 @@ class IP {
         this['sophosSettings'] = sophosSettings;
     }
 /**
-     * Returns Configuration for Trend Micro delivery settings in JSON format
+     * Returns Configuration for TrendMicro delivery settings in JSON format
      * @return {String}
      */
     getTrendmicroSettings() {
@@ -790,14 +785,14 @@ class IP {
     }
 
     /**
-     * Sets Configuration for Trend Micro delivery settings in JSON format
-     * @param {String} trendmicroSettings Configuration for Trend Micro delivery settings in JSON format
+     * Sets Configuration for TrendMicro delivery settings in JSON format
+     * @param {String} trendmicroSettings Configuration for TrendMicro delivery settings in JSON format
      */
     setTrendmicroSettings(trendmicroSettings) {
         this['trendmicroSettings'] = trendmicroSettings;
     }
 /**
-     * Returns Configuration for Checkpoint delivery settings in JSON format
+     * Returns Configuration for CheckPoint delivery settings in JSON format
      * @return {String}
      */
     getCheckpointSettings() {
@@ -805,8 +800,8 @@ class IP {
     }
 
     /**
-     * Sets Configuration for Checkpoint delivery settings in JSON format
-     * @param {String} checkpointSettings Configuration for Checkpoint delivery settings in JSON format
+     * Sets Configuration for CheckPoint delivery settings in JSON format
+     * @param {String} checkpointSettings Configuration for CheckPoint delivery settings in JSON format
      */
     setCheckpointSettings(checkpointSettings) {
         this['checkpointSettings'] = checkpointSettings;
@@ -872,19 +867,34 @@ class IP {
         this['state'] = state;
     }
 /**
-     * Returns The auto-warmup plan associated with the IP
-     * @return {String}
+     * Returns The auto-warmup plan associated with the IP. Can be null if no warmup plan is assigned.
+     * @return {module:sendpost/model/AutoWarmupPlan}
      */
     getAutoWarmupPlan() {
         return this.autoWarmupPlan;
     }
 
     /**
-     * Sets The auto-warmup plan associated with the IP
-     * @param {String} autoWarmupPlan The auto-warmup plan associated with the IP
+     * Sets The auto-warmup plan associated with the IP. Can be null if no warmup plan is assigned.
+     * @param {module:sendpost/model/AutoWarmupPlan} autoWarmupPlan The auto-warmup plan associated with the IP. Can be null if no warmup plan is assigned.
      */
     setAutoWarmupPlan(autoWarmupPlan) {
         this['autoWarmupPlan'] = autoWarmupPlan;
+    }
+/**
+     * Returns Labels associated with the IP
+     * @return {Array.<module:sendpost/model/Label>}
+     */
+    getLabels() {
+        return this.labels;
+    }
+
+    /**
+     * Sets Labels associated with the IP
+     * @param {Array.<module:sendpost/model/Label>} labels Labels associated with the IP
+     */
+    setLabels(labels) {
+        this['labels'] = labels;
     }
 
 }
@@ -898,19 +908,12 @@ IP.RequiredProperties = ["id", "publicIP", "created"];
 IP.prototype['id'] = undefined;
 
 /**
- * Labels associated with the IP
- * @member {Array.<String>} labels
- */
-IP.prototype['labels'] = undefined;
-
-/**
  * The public IP address associated with the resource
  * @member {String} publicIP
  */
 IP.prototype['publicIP'] = undefined;
 
 /**
- * Details of the system domain associated with the IP
  * @member {module:sendpost/model/Domain} systemDomain
  */
 IP.prototype['systemDomain'] = undefined;
@@ -1078,13 +1081,13 @@ IP.prototype['fortinetSettings'] = undefined;
 IP.prototype['sophosSettings'] = undefined;
 
 /**
- * Configuration for Trend Micro delivery settings in JSON format
+ * Configuration for TrendMicro delivery settings in JSON format
  * @member {String} trendmicroSettings
  */
 IP.prototype['trendmicroSettings'] = undefined;
 
 /**
- * Configuration for Checkpoint delivery settings in JSON format
+ * Configuration for CheckPoint delivery settings in JSON format
  * @member {String} checkpointSettings
  */
 IP.prototype['checkpointSettings'] = undefined;
@@ -1114,10 +1117,16 @@ IP.prototype['infraMonitor'] = undefined;
 IP.prototype['state'] = undefined;
 
 /**
- * The auto-warmup plan associated with the IP
- * @member {String} autoWarmupPlan
+ * The auto-warmup plan associated with the IP. Can be null if no warmup plan is assigned.
+ * @member {module:sendpost/model/AutoWarmupPlan} autoWarmupPlan
  */
 IP.prototype['autoWarmupPlan'] = undefined;
+
+/**
+ * Labels associated with the IP
+ * @member {Array.<module:sendpost/model/Label>} labels
+ */
+IP.prototype['labels'] = undefined;
 
 
 

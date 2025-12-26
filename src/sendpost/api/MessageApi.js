@@ -18,7 +18,7 @@ import Message from '../model/Message';
 /**
 * Message service.
 * @module sendpost/api/MessageApi
-* @version 1.0.0
+* @version 2.0.1
 */
 export default class MessageApi {
 

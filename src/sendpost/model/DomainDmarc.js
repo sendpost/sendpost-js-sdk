@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DomainDmarc model module.
  * @module sendpost/model/DomainDmarc
- * @version 1.0.0
+ * @version 2.0.1
  */
 class DomainDmarc {
     /**

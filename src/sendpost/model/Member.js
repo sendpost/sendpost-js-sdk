@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Member model module.
  * @module sendpost/model/Member
- * @version 1.0.0
+ * @version 2.0.1
  */
 class Member {
     /**

@@ -19,7 +19,7 @@ import Person from './Person';
 /**
  * The Message model module.
  * @module sendpost/model/Message
- * @version 1.0.0
+ * @version 2.0.1
  */
 class Message {
     /**
@@ -165,6 +165,14 @@ class Message {
         // ensure the json data is a string
         if (data['emailType'] && !(typeof data['emailType'] === 'string' || data['emailType'] instanceof String)) {
             throw new Error("Expected the field `emailType` to be a primitive type in the JSON string but got " + data['emailType']);
+        }
+        // validate the optional field `from`
+        if (data['from']) { // data not null
+          Person.validateJSON(data['from']);
+        }
+        // validate the optional field `replyTo`
+        if (data['replyTo']) { // data not null
+          Person.validateJSON(data['replyTo']);
         }
         // validate the optional field `to`
         if (data['to']) { // data not null

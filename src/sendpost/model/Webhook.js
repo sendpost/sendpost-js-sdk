@@ -12,12 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
-import Member from './Member';
 
 /**
  * The Webhook model module.
  * @module sendpost/model/Webhook
- * @version 1.0.0
+ * @version 2.0.1
  */
 class Webhook {
     /**
@@ -104,10 +103,10 @@ class Webhook {
                 obj['created'] = ApiClient.convertToType(data['created'], 'Number');
             }
             if (data.hasOwnProperty('created_by')) {
-                obj['created_by'] = Member.constructFromObject(data['created_by']);
+                obj['created_by'] = ApiClient.convertToType(data['created_by'], {'String': Object});
             }
             if (data.hasOwnProperty('updated_by')) {
-                obj['updated_by'] = Member.constructFromObject(data['updated_by']);
+                obj['updated_by'] = ApiClient.convertToType(data['updated_by'], {'String': Object});
             }
         }
         return obj;
@@ -384,7 +383,7 @@ class Webhook {
     }
 /**
      * Returns Member who created the webhook
-     * @return {module:sendpost/model/Member}
+     * @return {Object.<String, Object>}
      */
     getCreatedBy() {
         return this.created_by;
@@ -392,14 +391,14 @@ class Webhook {
 
     /**
      * Sets Member who created the webhook
-     * @param {module:sendpost/model/Member} createdBy Member who created the webhook
+     * @param {Object.<String, Object>} createdBy Member who created the webhook
      */
     setCreatedBy(createdBy) {
         this['created_by'] = createdBy;
     }
 /**
      * Returns Member who updated the webhook
-     * @return {module:sendpost/model/Member}
+     * @return {Object.<String, Object>}
      */
     getUpdatedBy() {
         return this.updated_by;
@@ -407,7 +406,7 @@ class Webhook {
 
     /**
      * Sets Member who updated the webhook
-     * @param {module:sendpost/model/Member} updatedBy Member who updated the webhook
+     * @param {Object.<String, Object>} updatedBy Member who updated the webhook
      */
     setUpdatedBy(updatedBy) {
         this['updated_by'] = updatedBy;
@@ -521,13 +520,13 @@ Webhook.prototype['created'] = undefined;
 
 /**
  * Member who created the webhook
- * @member {module:sendpost/model/Member} created_by
+ * @member {Object.<String, Object>} created_by
  */
 Webhook.prototype['created_by'] = undefined;
 
 /**
  * Member who updated the webhook
- * @member {module:sendpost/model/Member} updated_by
+ * @member {Object.<String, Object>} updated_by
  */
 Webhook.prototype['updated_by'] = undefined;
 
