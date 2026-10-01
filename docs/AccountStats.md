@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**date** | **Date** |  | [optional] 
-**stat** | [**AccountStatsStat**](AccountStatsStat.md) |  | [optional] 
+**date** | **Date** | The date for these statistics (UTC) | [optional] 
+**stat** | [**DailyStatistics**](DailyStatistics.md) |  | [optional] 
 
 

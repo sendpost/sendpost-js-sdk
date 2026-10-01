@@ -17,12 +17,12 @@ Method | HTTP request | Description
 
 Get Account Aggregate Stats
 
-Retrieve aggregated email statistics for all sub-accounts of a specific account for a given date range.
+Retrieve summarized email statistics across all sub-accounts for a date range. Returns a single aggregated record—perfect for high-level reporting and dashboards.  **Use Cases:** - Annual email program review - Quarterly business reports - Month-over-month comparison - Board-level metrics - ROI calculations for email program  **Example:** Get full year stats for 2024: &#x60;&#x60;&#x60; GET /account/stat/aggregate?from&#x3D;2024-01-01&amp;to&#x3D;2024-12-31 &#x60;&#x60;&#x60;  **Note:** Maximum date range is 366 days (1 year). 
 
 ### Example
 
 ```javascript
-import sendpost from 'sendpost-javascript-sdk';
+import sendpost from 'sendpost-js-sdk';
 let defaultClient = sendpost.ApiClient.instance;
 // Configure API key authorization: accountAuth
 let accountAuth = defaultClient.authentications['accountAuth'];
@@ -31,8 +31,8 @@ accountAuth.apiKey = 'YOUR API KEY';
 //accountAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new sendpost.StatsAApi();
-let from = new Date("2019-01-01"); // Date | The start date for retrieving aggregated stats (inclusive)
-let to = new Date("2019-12-31"); // Date | The end date for retrieving aggregated stats (inclusive). The difference between `from` and `to` should not exceed 366 days.
+let from = new Date("2024-01-01"); // Date | Start date for aggregation (inclusive). Format YYYY-MM-DD.
+let to = new Date("2024-12-31"); // Date | End date for aggregation (inclusive). Max 366 days from `from` date.
 apiInstance.getAccountAggregateStats(from, to).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -46,8 +46,8 @@ apiInstance.getAccountAggregateStats(from, to).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **Date**| The start date for retrieving aggregated stats (inclusive) | 
- **to** | **Date**| The end date for retrieving aggregated stats (inclusive). The difference between &#x60;from&#x60; and &#x60;to&#x60; should not exceed 366 days. | 
+ **from** | **Date**| Start date for aggregation (inclusive). Format YYYY-MM-DD. | 
+ **to** | **Date**| End date for aggregation (inclusive). Max 366 days from &#x60;from&#x60; date. | 
 
 ### Return type
 
@@ -69,12 +69,12 @@ Name | Type | Description  | Notes
 
 Get Account Group Aggregate Stats
 
-Gets aggregated email stats for a specific group in all sub-accounts of a specific account for the given daterange. The maximum daterange for which these stats can be retrieved is 366 days.
+Retrieve summarized email statistics for a specific group across all sub-accounts. Returns a single aggregated record for the group—ideal for campaign reporting.  **Use Cases:** - Annual performance report for a specific product integration - Compare total metrics for different campaigns - Summarize email performance for a specific customer segment - Calculate ROI for a marketing campaign by group  **Example:** Get yearly stats for Shopify integration: &#x60;&#x60;&#x60; GET /account/stat/aggregate/group?group&#x3D;shopify&amp;from&#x3D;2024-01-01&amp;to&#x3D;2024-12-31 &#x60;&#x60;&#x60;  **Note:** Maximum date range is 366 days (1 year). 
 
 ### Example
 
 ```javascript
-import sendpost from 'sendpost-javascript-sdk';
+import sendpost from 'sendpost-js-sdk';
 let defaultClient = sendpost.ApiClient.instance;
 // Configure API key authorization: accountAuth
 let accountAuth = defaultClient.authentications['accountAuth'];
@@ -83,9 +83,9 @@ accountAuth.apiKey = 'YOUR API KEY';
 //accountAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new sendpost.StatsAApi();
-let group = "shopify"; // String | Group whose aggregate stats need to be retrieved.
-let from = new Date("2019-01-01"); // Date | Date from which stats should be retrieved (should be in the format `YYYY-MM-DD`).
-let to = new Date("2019-12-31"); // Date | Date to which stats should be retrieved (should be in the format `YYYY-MM-DD`). Note that the difference between `from` and `to` should not be more than 366 days.
+let group = "shopify"; // String | The group/tag name to filter and aggregate statistics by.
+let from = new Date("2024-01-01"); // Date | Start date for aggregation (inclusive). Format YYYY-MM-DD.
+let to = new Date("2024-12-31"); // Date | End date for aggregation (inclusive). Max 366 days from `from` date.
 apiInstance.getAccountAggregateStatsByGroup(group, from, to).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -99,9 +99,9 @@ apiInstance.getAccountAggregateStatsByGroup(group, from, to).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group** | **String**| Group whose aggregate stats need to be retrieved. | 
- **from** | **Date**| Date from which stats should be retrieved (should be in the format &#x60;YYYY-MM-DD&#x60;). | 
- **to** | **Date**| Date to which stats should be retrieved (should be in the format &#x60;YYYY-MM-DD&#x60;). Note that the difference between &#x60;from&#x60; and &#x60;to&#x60; should not be more than 366 days. | 
+ **group** | **String**| The group/tag name to filter and aggregate statistics by. | 
+ **from** | **Date**| Start date for aggregation (inclusive). Format YYYY-MM-DD. | 
+ **to** | **Date**| End date for aggregation (inclusive). Max 366 days from &#x60;from&#x60; date. | 
 
 ### Return type
 
@@ -123,12 +123,12 @@ Name | Type | Description  | Notes
 
 List Account Group Stats
 
-Gets a list of all email stats for all sub-accounts of a specific account by group for a given daterange. The maximum daterange for which these stats can be retrieved is 31 days.
+Retrieve daily email statistics for a specific group across all sub-accounts. Returns one record per day, filtered by the group/tag you specify.  **What are Groups?** Groups (tags) are labels attached to emails when sending. They enable segmented analytics across your entire account.  **Common Group Strategies:** | Strategy | Example Groups | |----------|----------------| | By Product | &#x60;shopify&#x60;, &#x60;wordpress&#x60;, &#x60;api-direct&#x60; | | By Type | &#x60;transactional&#x60;, &#x60;marketing&#x60;, &#x60;alerts&#x60; | | By Team | &#x60;sales-team&#x60;, &#x60;support&#x60;, &#x60;engineering&#x60; | | By Campaign | &#x60;black-friday-2024&#x60;, &#x60;summer-sale&#x60; |  **Use Cases:** - Compare performance across products/integrations - Track specific campaign performance account-wide - Analyze transactional vs marketing metrics - Benchmark different teams&#39; email performance  **Note:** Maximum date range is 31 days. 
 
 ### Example
 
 ```javascript
-import sendpost from 'sendpost-javascript-sdk';
+import sendpost from 'sendpost-js-sdk';
 let defaultClient = sendpost.ApiClient.instance;
 // Configure API key authorization: accountAuth
 let accountAuth = defaultClient.authentications['accountAuth'];
@@ -137,9 +137,9 @@ accountAuth.apiKey = 'YOUR API KEY';
 //accountAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new sendpost.StatsAApi();
-let group = "shopify"; // String | Group whose stats need to be retrieved
-let from = new Date("2020-03-12"); // Date | Date from which stats should be retrieved (should be in the format `YYYY-MM-DD`)
-let to = new Date("2020-04-14"); // Date | Date to which stats should be retrieved (should be in the format `YYYY-MM-DD`). Note that the difference between `from` and `to` should not be more than 31 days.
+let group = "shopify"; // String | The group/tag name to filter statistics by.
+let from = new Date("2024-01-01"); // Date | Start date for stats retrieval (inclusive). Format YYYY-MM-DD.
+let to = new Date("2024-01-31"); // Date | End date for stats retrieval (inclusive). Max 31 days from `from` date.
 apiInstance.getAccountStatsByGroup(group, from, to).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -153,9 +153,9 @@ apiInstance.getAccountStatsByGroup(group, from, to).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group** | **String**| Group whose stats need to be retrieved | 
- **from** | **Date**| Date from which stats should be retrieved (should be in the format &#x60;YYYY-MM-DD&#x60;) | 
- **to** | **Date**| Date to which stats should be retrieved (should be in the format &#x60;YYYY-MM-DD&#x60;). Note that the difference between &#x60;from&#x60; and &#x60;to&#x60; should not be more than 31 days. | 
+ **group** | **String**| The group/tag name to filter statistics by. | 
+ **from** | **Date**| Start date for stats retrieval (inclusive). Format YYYY-MM-DD. | 
+ **to** | **Date**| End date for stats retrieval (inclusive). Max 31 days from &#x60;from&#x60; date. | 
 
 ### Return type
 
@@ -177,12 +177,12 @@ Name | Type | Description  | Notes
 
 List Account Stats
 
-Retrieve email statistics for all sub-accounts of a specific account for a given date range.
+Retrieve daily email statistics aggregated across all sub-accounts. Returns one record per day within the date range—ideal for organization-wide reporting.  **Metrics Per Day:** | Metric | Description | |--------|-------------| | &#x60;processed&#x60; | Total emails submitted across all sub-accounts | | &#x60;delivered&#x60; | Successfully delivered to recipients | | &#x60;dropped&#x60; | Blocked before sending | | &#x60;hardBounced&#x60; | Permanent delivery failures | | &#x60;softBounced&#x60; | Temporary delivery failures | | &#x60;opens&#x60; | Total email opens | | &#x60;clicks&#x60; | Total link clicks | | &#x60;unsubscribed&#x60; | Recipients who unsubscribed | | &#x60;spams&#x60; | Spam complaints received |  **Use Cases:** - Organization-wide email performance dashboard - Billing and usage tracking across all sub-accounts - Executive reporting for email program health - Trend analysis across your entire email operation  **Note:** Maximum date range is 31 days. 
 
 ### Example
 
 ```javascript
-import sendpost from 'sendpost-javascript-sdk';
+import sendpost from 'sendpost-js-sdk';
 let defaultClient = sendpost.ApiClient.instance;
 // Configure API key authorization: accountAuth
 let accountAuth = defaultClient.authentications['accountAuth'];
@@ -191,8 +191,8 @@ accountAuth.apiKey = 'YOUR API KEY';
 //accountAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new sendpost.StatsAApi();
-let from = new Date("2020-03-12"); // Date | The start date for retrieving stats (inclusive)
-let to = new Date("2020-04-14"); // Date | The end date for retrieving stats (inclusive). The difference between `from` and `to` should not exceed 31 days.
+let from = new Date("2024-01-01"); // Date | Start date for stats retrieval (inclusive). Format YYYY-MM-DD.
+let to = new Date("2024-01-31"); // Date | End date for stats retrieval (inclusive). Max 31 days from `from` date.
 apiInstance.getAllAccountStats(from, to).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -206,8 +206,8 @@ apiInstance.getAllAccountStats(from, to).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **Date**| The start date for retrieving stats (inclusive) | 
- **to** | **Date**| The end date for retrieving stats (inclusive). The difference between &#x60;from&#x60; and &#x60;to&#x60; should not exceed 31 days. | 
+ **from** | **Date**| Start date for stats retrieval (inclusive). Format YYYY-MM-DD. | 
+ **to** | **Date**| End date for stats retrieval (inclusive). Max 31 days from &#x60;from&#x60; date. | 
 
 ### Return type
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** |  | [optional] 
-**message** | **String** |  | [optional] 
+**id** | **Number** | ID of the deleted IP pool | [optional] 
+**message** | **String** | Confirmation message | [optional] 
 
 

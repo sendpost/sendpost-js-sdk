@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The unique ID of the IP | 
-**message** | **String** | The confirmation message after deletion | 
+**id** | **Number** | ID of the deleted IP | 
+**message** | **String** | Confirmation message | 
 
 

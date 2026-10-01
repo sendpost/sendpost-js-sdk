@@ -4,17 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | Unique ID for the member | [optional] 
-**isVerified** | **Boolean** | Indicates whether the member is verified | [optional] 
-**isForbidden** | **Boolean** | Indicates whether the member is forbidden | [optional] 
-**firebaseUID** | **String** | Firebase UID for the member | [optional] 
-**email** | **String** | Email for the member | [optional] 
-**name** | **String** | Name for the member | [optional] 
-**url** | **String** | Logo URL for the member | [optional] 
-**companyName** | **String** | Company name for the member | [optional] 
-**onboardQAnswered** | **Boolean** | Indicates whether the member has answered onboarding question | [optional] 
-**phoneNumber** | **String** | Phone number for the member | [optional] 
-**notesColor** | **String** | Color for the member&#39;s notes | [optional] 
-**created** | **Number** | UNIX epoch nano timestamp when the member was created | [optional] 
+**id** | **Number** | Unique identifier for the team member | [optional] 
+**email** | **String** | Email address of the team member (used for login) | [optional] 
+**name** | **String** | Display name of the team member | [optional] 
+**isVerified** | **Boolean** | Whether the member has verified their email address. Unverified members have limited access until verification is complete.  | [optional] 
+**logoUrl** | **String** | URL of the member&#39;s profile picture/avatar | [optional] 
+**companyName** | **String** | Company or organization name | [optional] 
+**onboardQAnswered** | **Boolean** | Whether the member has completed the onboarding questionnaire | [optional] 
+**phoneNumber** | **String** | Contact phone number in E.164 format. Used for account recovery and important notifications.  | [optional] 
+**created** | **Number** | UNIX epoch timestamp in nanoseconds when the member was added | [optional] 
 
 

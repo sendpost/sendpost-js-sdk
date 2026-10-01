@@ -4,10 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | Unique ID for the SMTP Auth | [optional] 
-**username** | **String** | Username for the SMTP Auth | [optional] 
-**password** | **String** | Password for the SMTP Auth | [optional] 
-**created** | **Number** | UNIX epoch nano timestamp when the SMTP Auth was created | [optional] 
-**updated** | **Number** | UNIX epoch nano timestamp when the SMTP Auth was updated | [optional] 
+**id** | **Number** | Unique identifier for the SMTP credentials | [optional] 
+**username** | **String** | SMTP username for authentication. Format: {identifier}@{subaccount_id}.sendpost.io  | [optional] 
+**created** | **Number** | UNIX epoch timestamp in nanoseconds when credentials were created | [optional] 
 
 

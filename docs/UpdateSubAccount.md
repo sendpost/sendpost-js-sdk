@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | New name for the sub-account. | [optional] 
+**name** | **String** | New display name for the sub-account | [optional] 
 
 

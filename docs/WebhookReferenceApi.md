@@ -17,7 +17,7 @@ SendPost Webhook Object
 ### Example
 
 ```javascript
-import sendpost from 'sendpost-javascript-sdk';
+import sendpost from 'sendpost-js-sdk';
 
 let apiInstance = new sendpost.WebhookReferenceApi();
 let opts = {

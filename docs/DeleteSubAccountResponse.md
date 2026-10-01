@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | Unique ID for the deleted sub-account. | [optional] 
-**message** | **String** | Message confirming the deletion. | [optional] 
+**id** | **Number** | ID of the deleted sub-account | [optional] 
+**message** | **String** | Confirmation message | [optional] 
 
 

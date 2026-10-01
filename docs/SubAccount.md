@@ -4,22 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | Unique ID for the sub-account. | [optional] 
-**apiKey** | **String** | API key for the sub-account. | [optional] 
-**name** | **String** | Name of the sub-account. | [optional] 
-**labels** | **[String]** | Labels associated with the sub-account | [optional] 
-**smtpAuths** | [**[SMTPAuth]**](SMTPAuth.md) | SMTP Auths associated with the sub-account | [optional] 
-**type** | **Number** | Type of the sub-account | [optional] 
-**isPlus** | **Boolean** | Indicates whether the sub-account is a Plus sub-account | [optional] 
-**created** | **Number** | UNIX epoch nano timestamp when the sub-account was created. | [optional] 
-**createdBy** | [**Member**](.md) | Member who created the sub-account | [optional] 
-**updatedBy** | [**Member**](.md) | Member who updated the sub-account | [optional] 
-**blocked** | **Boolean** | Indicates whether the sub-account is blocked | [optional] 
-**blockedAt** | **Number** | UNIX epoch nano timestamp when the sub-account was blocked (0 if not blocked) | [optional] 
-**blockReason** | **String** | Reason for blocking the sub-account | [optional] 
-**hbExempt** | **Boolean** | Indicates whether the sub-account is exempt from hard bounce tracking | [optional] 
-**generateWeeklyReport** | **Boolean** | Indicates whether weekly reports are generated for this sub-account | [optional] 
-**handlers** | **[String]** | Handlers associated with the sub-account | [optional] 
+**id** | **Number** | Unique identifier for the sub-account | [optional] 
+**accountId** | **Number** | Identifier of the parent account this sub-account belongs to | [optional] 
+**name** | **String** | Display name for the sub-account. Must be unique within your account. Use descriptive names.  | [optional] 
+**apiKey** | **String** | API key for this sub-account. Use this as the &#x60;X-SubAccount-ApiKey&#x60; header when making API calls for this sub-account (sending emails, managing domains, etc.).  **Security:** Treat this like a password. Rotate if compromised.  | [optional] 
+**type** | **Number** | Type of sub-account: - &#x60;0&#x60; &#x3D; Default (the primary sub-account created with your account) - &#x60;1&#x60; &#x3D; Custom (additional sub-accounts you create)  Note: The default sub-account cannot be deleted.  | [optional] 
+**isPlus** | **Boolean** | Whether this sub-account belongs to a SendX Plus customer. SendX Plus is a premium tier that provides enhanced features and support.  | [optional] 
+**labels** | [**[Label]**](Label.md) | Custom labels for organizing and filtering sub-accounts | [optional] 
+**blocked** | **Boolean** | Whether the sub-account is blocked from sending. A blocked sub-account cannot send emails. Common reasons: - High bounce/spam rates - Billing issues - Policy violations - Manual suspension by administrator  | [optional] 
+**created** | **Number** | UNIX epoch timestamp in nanoseconds when the sub-account was created | [optional] 
 
 
 
