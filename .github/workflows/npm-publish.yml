@@ -7,15 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write
+      id-token: write   # required for Trusted Publishing (OIDC) + provenance
     steps:
       - uses: actions/checkout@v5
-      # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
+      # Trusted Publishing (OIDC) needs npm >= 11.5.1; Node's bundled npm is older.
+      - name: Upgrade npm for Trusted Publishing
+        run: npm install -g npm@latest
       - run: npm ci
+      # No NODE_AUTH_TOKEN: with a token present npm uses token auth (hits EOTP
+      # under 2FA). Trusted Publishing authenticates via the OIDC id-token above,
+      # against the trusted publisher configured on npmjs.com for this package.
       - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
